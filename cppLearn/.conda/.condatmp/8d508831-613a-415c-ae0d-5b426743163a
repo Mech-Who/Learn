@@ -1,0 +1,13 @@
+prefix=d:/Task/Projects/Myself/Learn/cppLearn/.conda/Library
+exec_prefix=d:/Task/Projects/Myself/Learn/cppLearn/.conda/Library
+libdir=d:/Task/Projects/Myself/Learn/cppLearn/.conda/Library/lib
+sharedlibdir=d:/Task/Projects/Myself/Learn/cppLearn/.conda/Library/lib
+includedir=d:/Task/Projects/Myself/Learn/cppLearn/.conda/Library/include
+
+Name: zlib
+Description: zlib compression library
+Version: 1.2.13
+
+Requires:
+Libs: -L${libdir} -L${sharedlibdir} -lz
+Cflags: -I${includedir}
