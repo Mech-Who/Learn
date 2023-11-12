@@ -23,6 +23,8 @@
 
 ## UML
 
+![UML](./img/UML.png)
+
 主要角色：主题、抽象观察者、具体观察者
 
 - 主题（Subject）：类Subject需要了解Observer。Subject类具有许多方法，诸如register()和deregister()等，Observer可以通过这些方法注册到Subject类中。因此，一个Subject可以处理多个Observer。
