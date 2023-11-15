@@ -1,16 +1,22 @@
 import java.util.concurrent.*;
+import java.net.*;
+import java.io.*;
 
 public class MultiThread{
     public static void main(String[] args) {
-        ExecutorService executor = Executors.newSingleThreadExecutor(2);
+        ExecutorService executor = Executors.newSingleThreadExecutor();
         executor.execute(new Runnable(){
             @Override
             public void run(){
                 try{
                     ServerSocket ss = new ServerSocket(3000);
                     ss.setSoTimeout(10000);
-                    ss.accept();
-                    DataInputStream dis = new DataInputStream(ss.getInputStream());
+                    Socket s = ss.accept();
+                    DataInputStream dis = new DataInputStream(s.getInputStream());
+                    int status = dis.read();
+                    while (status > 0){
+                        System.out.print(status);
+                    }
                 }catch(Exception e){
                     e.printStackTrace();
                 }
