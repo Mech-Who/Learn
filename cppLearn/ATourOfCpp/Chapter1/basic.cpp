@@ -2,6 +2,11 @@
 #include <vector>
 // import std;
 
+/**
+ * 变量声明、初始化、赋值和作用域
+ *
+ * 注：注意区分初始化和赋值，{}一定是初始化，但=未必是赋值
+ */
 double fct(int arg) // 函数命名空间
 {
     // double square(double);  // 声明函数的时候，函数参数的名称不重要
@@ -18,12 +23,18 @@ double fct(int arg) // 函数命名空间
     return 3.4;
 }
 
+/**
+ * constexpr和consteval:
+ */
 int var = 17;
 const double sqv = fct(var);
-// constexpr double res = fct(var); // 这种写法会报错
-constexpr int dmv = 17; // 但是这样就不会，const才可以运行时计算，constexpr必须直接指定
+// 这种写法会报错
+// constexpr double res = fct(var);
+// 但是这样就不会，const才可以运行时计算，constexpr必须直接指定
+constexpr int dmv = 17;
 
-// 如果想要使用constexpr来接受函数返回值，则函数返回值需要定义为constexpr或consteval
+/* 如果想要使用constexpr来接受函数返回值，
+则函数返回值需要定义为constexpr或consteval*/
 // consteval表示该函数仅在编译时计算
 constexpr double getRes(double number)
 {
