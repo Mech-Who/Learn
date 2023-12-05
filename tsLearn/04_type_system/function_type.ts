@@ -26,10 +26,10 @@ const f12 = function (x: number, y: number) {
  * 并且编译器也无法推断参数类型，那么参数类型将默认为any类型。
  * 示例如下：
  */
-function add2(x, y) {
-  // 参数x和y隐式地获得了'any'类型
-  return x + y;
-}
+// function add2(x, y) {
+//   // 参数x和y隐式地获得了'any'类型
+//   return x + y;
+// }
 
 /**
  * 注意，如果启用了“--noImplicitAny”编译选项，那么此例中的代码将会产生编译错误。
@@ -72,9 +72,9 @@ function add5(x: number, y?: number, z?: number) {
  * 在它之后的参数y是必选参数，因此将产生编译错误。
  * 示例如下：
  */
-function add6(x?: number, y: number) {
-  // 编译错误！必选参数不能出现在可选参数之后
-}
+// function add6(x?: number, y: number) {
+//   // 编译错误！必选参数不能出现在可选参数之后
+// }
 
 /**
  * 如果函数的某个参数是可选参数，那么在调用该函数时既可以传入对应的实际参数，
@@ -87,10 +87,10 @@ function add7(x: number, y?: number) {
   return x + (y ?? 0);
 }
 
-add7(); // 编译错误！
+// add7(); // 编译错误！
 add7(1); // 正确
 add7(1, 2); // 正确
-add7(1, 2, 3); // 编译错误！
+// add7(1, 2, 3); // 编译错误！
 
 /**
  * 在“--strictNullChecks”模式下，
@@ -161,9 +161,9 @@ function add12(x: number = 0, y: number) {
   return x + y;
 }
 
-add(1); // 编译错误！
+// add(1); // 编译错误！
 add(1, 2); // 正确
-add(undefined, 2); // 正确
+// add(undefined, 2); // 正确
 //#endregion
 
 //#region 剩余参数类型
@@ -252,11 +252,11 @@ f103(true, 0, "", "hello");
  * 在4.3节中，我们介绍了如何对数组和对象进行解构。
  * 解构还可以应用在函数参数列表中。示例如下：
  */
-function f104([x, y]) {}
-f104([0, 1]);
+// function f104([x, y]) {}
+// f104([0, 1]);
 
-function f105({ x, y }) {}
-f105({ x: 0, y: 1 });
+// function f105({ x, y }) {}
+// f105({ x: 0, y: 1 });
 
 /**
  * 我们可以使用类型注解为解构参数添加类型信息。
@@ -307,24 +307,24 @@ function f108(): void {
 function f109(): void {}
 
 // f2, f3和f4是错误的使用场景
-function f110(): void {
-  return false;
-}
-function f111(): void {
-  return 0;
-}
-function f112(): void {
-  return "";
-}
+// function f110(): void {
+//   return false;
+// }
+// function f111(): void {
+//   return 0;
+// }
+// function f112(): void {
+//   return "";
+// }
 
 /**
  * 如果没有启用“--strictNullChecks”编译选项，
  * 那么void返回值类型也允许返回null值。
  * 示例如下：
  */
-function f113(): void {
-  return null;
-}
+// function f113(): void {
+//   return null;
+// }
 //#endregion
 
 //#region 函数类型字面量
@@ -637,11 +637,11 @@ function add204(x: number | any[], y: number | any[]): number | any[] {
  * 否则将产生编译错误。
  * 示例如下：
  */
-function add205(x: number, y: number): number;
+// function add205(x: number, y: number): number;
 
 const a204 = 0; //编译错误
 
-function add205(x: any[], y: any[]): any[];
+// function add205(x: any[], y: any[]): any[];
 
 const b204 = 0; // 编译错误
 
@@ -708,16 +708,16 @@ function add207(x: number | any[], y: number | any[]): number | any[] {
 add207(1, 2);
 add207([1], [2]);
 
-// 错误
-add207(1, [2]);
-add207([1], 2);
+// // 错误
+// add207(1, [2]);
+// add207([1], 2);
 
 /**
  * 函数实现需要兼容每个函数重载中的函数签名，函数实现的函数签名类型必须能够赋值给函数重载的函数签名类型。
  * 示例如下：
  */
-function foo204(x: number): boolean; // 编译错误：重载签名与实现签名的返回值类型不匹配
-function foo204(x: string): void; // 编译错误：重载签名与实现签名的参数类型不匹配
+// function foo204(x: number): boolean; // 编译错误：重载签名与实现签名的返回值类型不匹配
+// function foo204(x: string): void; // 编译错误：重载签名与实现签名的参数类型不匹配
 // 错误，参数类型不兼容
 function foo204(x: number): void {
   x = x * x;
@@ -731,8 +731,8 @@ function foo204(x: number): void {
  * 我们可以使用联合类型来解决这些问题，
  * 示例如下：
  */
-function foo205(x: number): boolean; // 编译错误：重载签名与实现签名的返回值类型不匹配
-function foo205(x: string): void; // 编译错误：重载签名与实现签名的参数类型不匹配
+// function foo205(x: number): boolean; // 编译错误：重载签名与实现签名的返回值类型不匹配
+// function foo205(x: string): void; // 编译错误：重载签名与实现签名的参数类型不匹配
 // 错误，参数类型不兼容
 function foo205(x: number): void {
   x = x * x;
@@ -765,9 +765,244 @@ function add208(x: number | any[], y: number | any[]): number | any[] {
 
 //#region 函数重载解析顺序
 /**
+ * 当程序中调用了一个重载函数时，编译器将首先构建出一个候选函数重载列表。
+ * 一个函数重载需要满足如下条件才能成为本次函数调用的候选函数重载：
  *
+ * 1. 函数实际参数的数量不少于函数重载中定义的必选参数的数量。
+ * 2. 函数实际参数的数量不多于函数重载中定义的参数的数量。
+ * 3. 每个实际参数的类型能够赋值给函数重载定义中对应形式参数的类型。
+ *
+ * 候选函数重载列表中的成员将以函数重载的声明顺序作为初始顺序，然后进行简单的排序，
+ * 将参数类型中包含字面量类型的函数重载排名提前。示例如下：
+ */
+function f300(x: string): void; // <- 函数重载1
+function f300(y: "specialized"): void; // <- 函数重载2
+function f300(x: string) {
+  // 省略
+}
+
+f300("specialized");
+
+/**
+ * 此例第7行，使用字符串参数'specialized'调用重载函数f时，
+ * 函数重载1和函数重载2都满足候选函数重载的条件，因此两者都在候选函数重载列表中。
+ * 但是因为函数重载2的函数签名中包含字面量类型，所以比函数重载1的优先级更高。
+ *
+ * 最终，构造出来的有序候选函数重载列表如下：
+ *
+ * 1）函数重载2：“function f(y: 'specialized'): void;”。
+ * 2）函数重载1：“function f(x: string): void;”。
+ *
+ * 若候选函数重载列表中存在一个或多个函数重载，则使用列表中第一个函数重载。
+ * 因此，此例中将使用函数重载2。
+ *
+ * 如果构建的候选函数重载列表为空列表，则会产生编译错误。
+ * 例如，当使用number类型的参数调用此例中的函数f时不存在候选函数重载，因此会产生编译错误，
+ * 如下所示：
+ */
+//f300(1);  // 编译错误
+
+/**
+ * 通过以上的介绍我们能够知道，
+ * 函数重载的解析顺序依赖于函数重载的声明顺序以及函数签名中是否包含字面量类型。
+ * 因此，TypeScript中的函数重载功能可能没有其他一些编程语言那么“智能”。
+ * 这就要求开发者在编写函数重载代码时一定要将最精确的函数重载定义放在最前面，
+ * 因为它们定义的顺序将影响函数调用签名的选择。
+ * 示例如下：
+ */
+function f301(x: any): number; // <- 函数重载1
+function f301(x: string): 0 | 1; // <- 函数重载2
+function f301(x: any): any {
+  // ...
+}
+
+//const a301: 0 | 1 = f301("hi");
+//编译错误！类型 'number' 不能赋值给类型 '0 | 1'
+
+/**
+ * 此例中，函数重载2比函数重载1更加精确，但函数重载2是在函数重载1之后定义的。
+ * 由于函数重载2的参数中不包含字面量类型，因此编译器不会对候选函数重载列表进行重新排序。
+ * 第7行，当使用字符串调用函数f时，函数重载1位于候选函数重载列表的首位，
+ * 并被选为最终使用的函数重载。我们能看到“f('hi')”的返回值类型为number类型，
+ * 而不是更精确的“0 | 1”联合类型。
+ * 若想要修复这个问题，只需将函数重载1和函数重载2的位置互换即可。
+ * 示例如下：
+ */
+function f302(x: string): 0 | 1;
+function f302(x: any): number;
+function f302(x: any): any {
+  // ...
+}
+
+const a302: 0 | 1 = f302("hi");
+
+/**
+ * 到这里，我们已经介绍了重载函数的大部分功能。因为TypeScript语言的自身特点，
+ * 所以它提供的函数重载功能可能不如其他编程语言那样便利。
+ * 实际上在很多场景中我们并不需要声明重载函数，尤其是在函数返回值类型不变的情况下。
+ * 示例如下：
+ */
+function foo303(x: string): boolean;
+function foo303(x: string, y: number): boolean;
+function foo303(x: string, y?: number): boolean {
+  return true;
+  // ...
+}
+
+const a303 = foo303("hello");
+const b303 = foo303("hello", 2);
+
+function bar303(x: string, y?: number): boolean {
+  return true;
+  // ...
+}
+
+const c303 = bar303("hello");
+const d303 = bar303("hello", 1);
+
+/**
+ * 此例中，foo函数是重载函数，而bar函数则为普通函数声明。
+ * 两个函数在功能上以及可接受的参数类型和函数返回值类型都是相同的。
+ * 但是，bar函数的声明代码更少也更加清晰。
+ */
+//#endregion
+
+//#region 重载函数的类型
+/**
+ * 重载函数的类型可以通过包含多个调用签名的对象类型来表示。
+ * 例如，有以下重载函数定义：
+ */
+function foo304(x: string): 0 | 1;
+function foo304(x: any): number;
+function foo304(x: any): any {
+  // ...
+}
+
+/**
+ * 我们可以使用如下对象类型字面量来表示重载函数f的类型。
+ * 在该对象类型字面量中，定义了两个调用签名类型成员，
+ * 分别对应于重载函数的两个函数重载。示例如下：
+ *
+ * {
+ *  (x: string): 0 | 1;
+ *  (x: any): number;
+ * }
+ *
+ * 在定义重载函数的类型时，有以下两点需要注意：
+ *
+ * 1. 函数实现的函数签名不属于重载函数的调用签名之一。
+ * 2. 调用签名的书写顺序是有意义的，它决定了函数重载的解析顺序，
+ * 一定要确保更精确的调用签名位于更靠前的位置。
+ *
+ * 对象类型字面量以及后面会介绍的接口都能够用来定义重载函数的类型，
+ * 但是函数类型字面量无法定义重载函数的类型，因为它只能够表示一个调用签名。
+ */
+//#endregion
+
+//#region 小结
+/**
+ * 本节中，我们主要介绍了重载函数的定义和解析规则，
+ * 以及如何描述重载函数的类型。细心的读者会发现，
+ * 我们没有谈及构造函数的重载。实际上构造函数也支持重载并且与本节介绍的重载函数是类似的。
+ * 关于重载构造函数的详细介绍请参考5.15.7节。
  */
 
+//#endregion
+
+//#endregion
+
+//#region 函数中this值的类型
+/**
+ * this是JavaScript中的关键字，它可以表示调用函数的对象或者实例对象等。
+ * 本节将介绍函数声明和函数表达式中this值的类型。
+ *
+ * 在默认情况下，编译器会将函数中的this值设置为any类型，
+ * 并允许程序在this值上执行任意的操作。因为，编译器不会对any类型进行类型检查。
+ * 例如，下例中在this值上的所有访问操作都是允许的：
+ */
+// function f305() {
+//   this.a = true;
+//   this.b++;
+//   this.c = () => {};
+// }
+
+//#region --noImplicitThis
+/**
+ * 将this值的类型设置为any类型对类型检查没有任何帮助。
+ * 因此，TypeScript提供了一个“--noImplicitThis”编译选项。
+ * 当启用了该编译选项时，如果this值默认获得了any类型，
+ * 那么将产生编译错误；如果函数体中没有引用this值，
+ * 则没有任何影响。
+ * 示例如下：
+ */
+// function f306() {
+//   this.a = true;     // 编译错误
+//   this.b++;          // 编译错误
+//   this.c = () => {}; // 编译错误
+// }
+
+// 没有错误
+function f307() {
+  const a = true;
+}
+
+/**
+ * 函数中this值的类型可以通过一个特殊的this参数来定义。
+ * 下面我们将介绍这个特殊的this参数。
+ */
+//#endregion
+
+//#region 函数的this参数
+/**
+ * TypeScript支持在函数形式参数列表中定义一个特殊的this参数
+ * 来描述该函数中this值的类型。示例如下：
+ */
+function foo308(this: { name: string }) {
+  this.name = "Patrick";
+  // this.name = 0;
+  // 编译错误！类型 0 不能赋值给类型 'string'
+}
+
+/**
+ * this参数固定使用this作为参数名。this参数是一个可选的参数，
+ * 若存在，则必须作为函数形式参数列表中的第一个参数。
+ * this参数的类型即为函数体中this值的类型。
+ * this参数不同于常规的函数形式参数，它只存在于编译阶段，
+ * 在编译生成的JavaScript代码中会被完全删除，
+ * 在运行时的代码中不存在这个this参数。
+ *
+ * 如果我们想要定义一个纯函数或者是不想让函数代码依赖于this的值，
+ * 那么在这种情况下可以明确地将this参数定义为void类型。
+ * 这样做之后，在函数体中就不允许读写this的属性和方法。
+ * 示例如下：
+ */
+function add309(this: void, x: number, y: number) {
+  // this.name = 'Patrick';
+  // 编译错误！属性 'name'上不存在类型 'void'
+  return x + y;
+}
+
+/**
+ * 当调用定义了this参数的函数时，若this值的实际类型与函数定义中的期望类型不匹配，
+ * 则会产生编译错误。示例如下：
+ */
+function foo310(this: { bar: string }, baz: number) {
+  // ...
+}
+
+// foo310(0);
+// 编译错误，'this'类型为'void'，不能赋值给 '{ bar: string }' 类型的this
+
+foo310.call({ bar: "hello" }, 0); // 正确
+
+/**
+ * 此例第1行，将foo函数this值的类型设置为对象类型“{ bar:string }”。
+ * 第7行，调用foo函数时this值的类型为void类型，它与期望的类型不匹配，
+ * 因此产生编译错误。第9行，在调用foo函数时指定了this值为“{ bar: 'hello' }”，
+ * 其类型符合this参数的类型定义，因此不会产生错误。
+ * “Function.prototype.call()”方法是JavaScript内置的方法，
+ * 它能够指定调用函数时使用的this值。
+ */
 //#endregion
 
 //#endregion

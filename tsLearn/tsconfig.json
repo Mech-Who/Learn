@@ -3,6 +3,7 @@
     "strict": true,
     "strictNullChecks": true,
     "noImplicitAny": true,
+    "noImplicitThis": true,
     "target": "es2022",
     "module": "commonjs",
     "outDir": "./js"
