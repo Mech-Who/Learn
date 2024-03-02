@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <!-- 用<template>标签编写模板内容，需要添加id属性 -->
+    <template id="why">
+      <div>
+          <h2> {{message}} </h2>
+          <h2> {{counter}} </h2>
+          <button @click='increment'>+1</button>
+          <button @click='decrement'>-1</button>
+      </div>
+    </template>
+
+    <script src="./js/vue.js"></script>
+    <script>
+      const app = Vue.createApp({
+        template: "#why", // 通过ID选择器选中 <template id="why">...</template> 模板
+        data: function () {
+          return {
+            message: "methods中的this",
+            counter: 100, // 当前的计数器
+          };
+        },
+        // 定义各种各样的方法
+        methods: {
+          increment:() => {
+            this.counter++; // this是Vue实例
+            console.log('increment=>', this);
+          },
+          decrement() {
+            this.counter--;
+            console.log('decrement=>', this);
+          },
+          // decrement:function() {
+          //   this.counter--;
+          // }
+        },
+      });
+      app.mount("#app");
+    </script>
+  </body>
+</html>

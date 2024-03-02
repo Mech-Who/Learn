@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+    <script src="./js/vue.js"></script>
+    <script>
+        const app = Vue.createApp({
+            template: `
+            <div>
+                <h2> {{counter}} </h2>
+                <button @click='increment'>+1</button>
+                <button @click='decrement'>-1</button>
+            </div>
+            `,
+            data: function() {
+                return {
+                    counter: 100    // 当前的计数器
+                }
+            },
+            // 定义各种各样的方法
+            methods: {
+                increment() {
+                    this.counter++; // this是Vue实例
+                },
+                decrement() {
+                    this.counter--;
+                }
+            }
+        })
+        app.mount("#app");
+    </script>
+</body>
+</html>
