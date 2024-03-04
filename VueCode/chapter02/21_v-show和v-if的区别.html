@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-quiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* 属性选择器，选中包含v-cloak属性的元素，如h2 */
+      [v-cloak] {
+        display: none;
+      }
+      .area {
+        width: 100px;
+        height: 100px;
+        background: #ddd;
+        margin-bottom: 4px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app"></div>
+    <template id="my-app">
+      <h2 v-if="isShow">v-if控制显示和隐藏</h2>
+      <h2 v-show="isShow">v-show控制显示和隐藏</h2>
+    </template>
+
+    <script src="./js/vue.js"></script>
+    <script>
+      const App = {
+        template: "#my-app",
+        data() {
+          return {
+            isShow: false,
+          };
+        },
+        methods: {
+          toggle() {
+            this.isShow = !this.isShow;
+          },
+        },
+      };
+      Vue.createApp(App).mount("#app");
+    </script>
+  </body>
+</html>
