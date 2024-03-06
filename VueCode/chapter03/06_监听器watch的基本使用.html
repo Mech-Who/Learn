@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-quiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <template id="my-app">
+      请输入问题：<input type="text" v-model="question" />
+      <div>{{answer}}</div>
+    </template>
+
+    <script src="./js/vue.js"></script>
+    <script>
+      const App = {
+        template: "#my-app",
+        data() {
+          return {
+            // 1. 需求：监听qquestion的变化，进行一些逻辑处理，比如发起网络请求等
+            question: "",
+            answer: "",
+          };
+        },
+        // 2. 监听器
+        watch: {
+          // 3. (1) 监听question的变化
+          question: function (newValue, oldValue) {
+            console.log("新question值：", newValue, "旧question值", oldValue);
+            // 4. question变化后调用queryAnswer()方法
+            this.queryAnswer();
+          },
+
+          // (2) 监听question的简写
+          // question(newValue, oldValue) {
+          //   console.log("新question值：", newValue, "旧question值", oldValue);
+          //   this.queryAnswer();
+          // }
+
+          // (3) 监听question的对象写法
+          // question: {
+          //   handler(newValue, oldValue) {
+          //     console.log("新question值：", newValue, "旧question值", oldValue);
+          //     this.queryAnswer();
+          //   }
+          // }
+        },
+        methods: {
+          queryAnswer() {
+            this.answer = `你的问题是：${this.question}? 答案：哈哈哈哈！`;
+          },
+        },
+      };
+      Vue.createApp(App).mount("#app");
+    </script>
+  </body>
+</html>

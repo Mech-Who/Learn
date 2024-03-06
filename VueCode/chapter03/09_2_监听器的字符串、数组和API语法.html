@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-quiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <template id="my-app">
+      <h2>{{info.name}}</h2>
+      <h2>{{info.book.name}}</h2>
+      <button @click="changeInfo">改变info</button>
+      <button @click="changeInfoName">改变info.name</button>
+      <button @click="changeInfoBookName">改变info.book.name</button>
+    </template>
+
+    <script src="./js/vue.js"></script>
+    <script>
+      const App = {
+        template: "#my-app",
+        data() {
+          return {
+            b: 2,
+            f: 5,
+            info: { name: "coderwhy", age: 18, book: { name: "Vue.js 3+TS" } },
+            friends: [{name: 'why'}, {name: 'kobe'}],
+          };
+        },
+        watch: {
+          // 1. 字符串方法名，当b发生变化时，会触发someMethod函数的回调
+          b: "someMethod",
+          // 2. 可传入回调数组，它会被逐一调用（handler1，handler2和handler3函数）
+          f: [
+            "handle1", // f发生改变时会触发handle1方法的回调
+            function handle2(val, oldVal) {
+              console.log("handle2 triggered");
+            },
+            {
+              handler: function handle3(val, oldVal) {
+                console.log("handle3 triggered");
+              },
+            },
+          ],
+          // 深度监听
+          "info.name": function (newName, oldName) {
+            console.log(newName, oldName);
+          },
+          // 深度监听时，监听函数的新值和旧值都指向同一个引用
+          info: {
+            handler: function(newInfo, oldInfo) {
+              console.log(newInfo === oldInfo); // 打印为true
+            }
+          },
+          // 深度监听还可以监听数组内部属性的变化
+          friends: {
+            handler(newFriends, oldFriends) {
+              console.log(newFriends, oldFriendsd);
+            },
+            deep: true
+          }
+        },
+        methods: {
+          someMethod() {
+            console.log("b changed");
+          },
+          handle1() {
+            console.log("handle1 triggered");
+          },
+        },
+        // 生命周期函数
+        created() {
+          // watchAPI：this.$watch(source, callback, options)
+          this.$watch(
+            "info",
+            (newName, oldName) => {
+              console.log(newValue, oldValue);
+            },
+            { deep: true, immediate: true }
+          );
+        },
+      };
+      Vue.createApp(App).mount("#app");
+    </script>
+  </body>
+</html>
