@@ -12,7 +12,10 @@
 
 ## 搭建步骤
 
-1. 建立基本目录结构：
+1. 建立基本目录结构并建立引用关系：
 
-    - 在index.html文件中使用link标签引入style文件
+    - 在在index.html文件中使用link标签引入style文件
+    - 使用script的src属性引入vue.js文件，引入vue.js 3 框架
     - 使用script的src属性引入index.js文件
+    - 在index.js中搭建vue3app的基本代码
+    - 在style.css文件中做好表格样式代码预设置
