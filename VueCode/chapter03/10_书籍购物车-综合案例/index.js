@@ -42,6 +42,13 @@ Vue.createApp({
       }
       return finalPrice;
     },
+    // 为价格添加人民币符号
+    formatPrice() {
+        // price是模板中传递过来的参数
+        return (price) => {
+            return "￥" + price
+        }
+    }
   },
   methods: {
     decrement(index) {

@@ -26,9 +26,10 @@
               <td>{{index + 1}}</td>
               <td>{{book.name}}</td>
               <td>{{book.date}}</td>
-              <td>{{book.price}}</td>
+              <!-- 调用formatPrice()计算属性，并传递参数 -->
+              <td>{{formatPrice(book.price)}}</td>
               <td>
-                <button @click="decrement(index)">-</button>
+                <button :disabled="book.count <= 1" @click="decrement(index)">-</button>
                 <span class="counter">{{book.count}}</span>
                 <button @click="increment(index)">+</button>
               </td>
@@ -38,7 +39,7 @@
             </tr>
           </tbody>
         </table>
-        <h2>总价格：{{totalPrice}}</h2>
+        <h2>总价格：{{formatPrice(totalPrice)}}</h2>
       </template>
       <template v-else>
         <h2>购物车为空</h2>
