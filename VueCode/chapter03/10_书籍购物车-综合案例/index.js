@@ -32,7 +32,7 @@ Vue.createApp({
                     count: 1
                 },
             ]
-        },
+        }
     },
     computed: {
             

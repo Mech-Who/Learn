@@ -19,3 +19,8 @@
     - 使用script的src属性引入index.js文件
     - 在index.js中搭建vue3app的基本代码
     - 在style.css文件中做好表格样式代码预设置
+
+2. 搭建书籍列表
+
+    - 在index.html中编写书籍列表的布局
+    
