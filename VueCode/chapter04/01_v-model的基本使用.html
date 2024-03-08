@@ -9,9 +9,8 @@
 <body>
   <div id="app"></div>
   <template id="my-app">
-    <h4>{{firstName + " " + lastName}}</h4>
-    <h4>{{score >= 60 ? '及格': '不及格'}}</h4>
-    <h4>{{message.split(" ").reverse().join(" ")}}</h4>
+    <input type="text" v-model="message">
+    <h2>{{message}}</h2>
   </template>
   
   <script src="./js/vue.js"></script>
@@ -20,12 +19,12 @@
       template: "#my-app",
       data() {
         return {
-            firstName: "Kobe",
-            lastName: "Bryant",
-            score: 80,
-            message: "Hello World",
+          message: "Hello World",
         }
       },
+      methods: {
+
+      }
     }
     Vue.createApp(App).mount('#app');
   </script>
