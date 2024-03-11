@@ -1,23 +1,36 @@
 <template>
-  <div>
-    Welcome to Your Vue.js App
+  <!-- 1. 页面头部内容 -->
+  <div class="header">
+    <h4>Header</h4>
+    <h4>NavBar</h4>
+  </div>
+  <div class="main">
+    <h4>Banner轮播图内容</h4>
+    <ul>
+      <li>商品信息1</li>
+      <li>商品信息2</li>
+      <li>商品信息3</li>
+      <li>商品信息4</li>
+      <li>商品信息5</li>
+    </ul>
+  </div>
+  <!-- 3. 页面尾部内容 -->
+  <div class="footer">
+    <h4>Footer</h4>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'App',
-  components: {}
-}
+  name: "App", // 组件的名称为App
+};
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+.header,
+.main,
+.footer {
+  border: 1px solid #999;
+  margin-bottom: 4px;
 }
 </style>
