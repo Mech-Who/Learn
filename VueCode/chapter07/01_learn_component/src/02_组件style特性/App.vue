@@ -16,4 +16,7 @@ export default {
 h4 {
     text-decoration: underline;
 }
+:deep(.msg) {
+    text-decoration: underline;
+}
 </style>
