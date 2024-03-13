@@ -1,4 +1,4 @@
 import { createApp } from "vue";
-import App from "./05_商品页选项卡的切换/App.vue";
+import App from "./06_Provide和Inject使用/App.vue";
 
 createApp(App).mount("#app");
