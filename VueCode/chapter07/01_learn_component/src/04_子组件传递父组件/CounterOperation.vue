@@ -2,8 +2,8 @@
   <div>
     <button @click="increment">+1</button>
     <button @click="decrement">-1</button>
-    <input type="text" v-modeel.number="num" />
-    <button @click="increementN">+n</button>
+    <input type="text" v-model.number="num" />
+    <button @click="incrementN">+n</button>
   </div>
 </template>
 

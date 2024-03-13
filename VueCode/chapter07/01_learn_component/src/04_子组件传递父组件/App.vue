@@ -24,7 +24,7 @@ export default {
       this.counter--;
     },
     addNNum(num, name, age) {
-      console.log(name, age);
+      console.log(num, name, age);
       this.counter += num;
     },
   },
