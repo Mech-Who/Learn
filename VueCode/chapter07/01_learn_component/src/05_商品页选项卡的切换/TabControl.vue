@@ -15,7 +15,7 @@
 <script>
 export default {
   emit: ["titleClick"],
-  prop: {
+  props: {
     titles: {
       type: Array,
       default() {
@@ -31,7 +31,7 @@ export default {
   },
   methods: {
     itemClick(index) {
-      this.currentIndex = currentIndex; // 更新索引
+      this.currentIndex = index; // 更新索引
       this.$emit("titleClick", index); //触发titleClick事件，并传递index给父组件
     },
   },
