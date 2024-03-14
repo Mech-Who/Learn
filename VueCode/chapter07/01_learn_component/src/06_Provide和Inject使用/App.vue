@@ -11,11 +11,13 @@ export default {
   components: {
     Home,
   },
-  // 在根组件中通过provide属性为子组件和孙子组件提供数据
-  provide: {
-    name: "why",
-    age: 18,
-    friends: this.friends,
+  // provide属性为函数，并返回一个对象
+  provide() {
+    return {
+      name: "why",
+      age: 18,
+      friends: this.friends,
+    }
   },
   data() {
     return {
