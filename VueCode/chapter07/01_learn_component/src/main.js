@@ -1,4 +1,4 @@
 import { createApp } from "vue";
-import App from "./06_Provide和Inject使用/App.vue";
+import App from "./07_事件总线的使用/App.vue";
 
 createApp(App).mount("#app");
