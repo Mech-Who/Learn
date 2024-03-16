@@ -17,8 +17,9 @@ export default {
       name: "why",
       age: 18,
       friends: this.friends,
-      friendLength: this.friends.friendLength // 继续提供friendLength数据，但是它不是响应式数据了
-    }
+      // 2. computed函数返回的是ref响应式对象
+      friendLength: computed(() => this.friends.length)
+    };
   },
   data() {
     return {
