@@ -1,19 +1,24 @@
 <template>
     <div class="nav-bar">
         <div class="left">
-            <slot name="left"></slot> <!-- 1. 为插槽起一个left名字 -->
+            <!-- 动态添加插槽的名称，由外部使用者决定 -->
+            <slot :name="name"></slot>
         </div>
         <div class="center">
-            <slot name="center"></slot> <!-- 2. 为插槽起一个center名字 -->
+            <slot name="center"></slot>
         </div>
         <div class="right">
-            <slot name="right"></slot> <!-- 2. 为插槽起一个right名字 -->
+            <slot name="right"></slot>
         </div>
     </div>
 </template>
 
 <script>
-    export default {}
+    export default {
+        props: {
+            name: String // 接收插槽的名称
+        }
+    }
 </script>
 
 <style scoped>

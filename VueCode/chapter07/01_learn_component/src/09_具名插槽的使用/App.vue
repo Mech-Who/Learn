@@ -1,8 +1,8 @@
 <template>
   <div class="app">
-    <nav-bar>
-      <template v-slot:left>
-        <!-- v-slot指令指定目标slot的名字为left -->
+    <nav-bar :name="name">
+      <template v-slot:[name]>
+        <!-- 传递插槽名称给NavBar.vue组件 -->
         <button>左边按钮</button>
       </template>
       <template v-slot:center>
@@ -22,6 +22,11 @@ import NavBar from "./NavBar.vue";
 export default {
   components: {
     NavBar,
+  },
+  data() {
+    return {
+      name: "coderwhy", // 定义插槽的名称
+    };
   },
 };
 </script>
