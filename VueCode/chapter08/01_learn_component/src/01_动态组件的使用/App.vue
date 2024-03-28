@@ -8,7 +8,7 @@
       {{ item }}
     </button>
     <!-- 2. 用keep-alive组件保留动态组件的状态，同时会保留其对应的子孙组件的状态 -->
-    <keep-alive>
+    <keep-alive include="home,category">
       <component 
         :is="currentTab"
         name="coderwhy"

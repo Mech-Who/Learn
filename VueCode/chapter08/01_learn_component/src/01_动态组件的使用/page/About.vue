@@ -13,11 +13,6 @@ export default {
       counter: 0
     }
   },
-  methods: {
-    divClick() {
-      this.$emit("pageClick", "About组件触发的单击");
-    },
-  },
 };
 </script>
 

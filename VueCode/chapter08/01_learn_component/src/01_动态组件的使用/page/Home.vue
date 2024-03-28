@@ -1,30 +1,19 @@
 <template>
-    <div @click="divClick">
-      Home组件: {{ name }} - {{ age }}
-    </div>
+  <div>
+    Home组件
+    <button @click="counter++">单击递增：{{ counter }}</button>
+  </div>
 </template>
 
 <script>
-    export default {
-      name: "home",
-      props: {
-        name: {
-          type: String,
-          default: ""
-        },
-        age: {
-          type: Number,
-          default: 0
-        }
-      },
-      emit: ["pageClick"],
-      methods: {
-        divClick() {
-          this.$emit("pageClick", "Home组件触发的单击")
-        }
-      }
+export default {
+  name: "home",
+  data() {
+    return {
+      counter: 0
     }
+  },
+};
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>
