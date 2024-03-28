@@ -1,15 +1,20 @@
 <template>
   <div class="app">
     <button
-      v-for="item in tabs"
-      :key="item"
+      v-for="item in tabs" :key="item"
       @click="itemClick(item)"
       :class="{ active: currentTab == item }"
     >
       {{ item }}
     </button>
-    <!-- 2. 动态组件的实现（is属性是动态绑定组件的名称。例如is="home"，代表绑定<home/>组件） -->
-    <component :is="currentTab"></component>
+    <!-- 1. v-if指令的实现 -->
+    <!-- 2. 向三个组件传递name和age属性，以及监听pageClick事件 -->
+    <component 
+      :is="currentTab"
+      name="coderwhy"
+      :age="18"
+      @pageClick="pageClick">
+    </component>
   </div>
 </template>
 
