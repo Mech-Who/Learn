@@ -7,14 +7,15 @@
     >
       {{ item }}
     </button>
-    <!-- 1. v-if指令的实现 -->
-    <!-- 2. 向三个组件传递name和age属性，以及监听pageClick事件 -->
-    <component 
-      :is="currentTab"
-      name="coderwhy"
-      :age="18"
-      @pageClick="pageClick">
-    </component>
+    <!-- 2. 用keep-alive组件保留动态组件的状态，同时会保留其对应的子孙组件的状态 -->
+    <keep-alive>
+      <component 
+        :is="currentTab"
+        name="coderwhy"
+        :age="18"
+        @pageClick="pageClick">
+      </component>
+    </keep-alive>
   </div>
 </template>
 
