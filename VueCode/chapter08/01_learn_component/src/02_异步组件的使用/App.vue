@@ -7,6 +7,7 @@
 <script>
 // 普通方式导入的Home.vue组件，不会进行分包处理。
 import Home from "./Home.vue"
+import Loading from "./Loading.vue"
 // import { sum } from "./utils/math.js"
 import { defineAsyncComponent } from "vue";
 // 1. 异步加载组件，工厂函数类型的语法
@@ -18,7 +19,7 @@ const AsyncCategory = defineAsyncComponent({
   // 2.2 加载时显示Loading组件
   loadingComponent: Loading,
   // 2.3 加载失败是显示Error组件
-  errorComponent: Error,
+  // errorComponent: Error,
   // 2.4 在显示loadingComponent之前的延迟，默认值：200（单位 ms）
   delay: 200,
   // 2.5 加载组件时的时间超过设定值，将显示错误组件，默认值：Infinity（即永不超时，单位 ms）
@@ -32,8 +33,8 @@ const AsyncCategory = defineAsyncComponent({
    * @param { * } fail 一个函数，指示加载程序结束并退出
    * @param { * } attempts 允许的最大重试次数
    */
-  onError: function(error, retry, fail, attempts) {
-    if(error.message.match(/fetch/) && attempts <= 3) {
+  onError: function (error, retry, fail, attempts) {
+    if (error.message.match(/fetch/) && attempts <= 3) {
       retry();
     } else {
       // 注意，retry/fail就像promise的resolve/reject一样
