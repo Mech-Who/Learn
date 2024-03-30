@@ -1,6 +1,16 @@
 <template>
-  <div class="app">App组件
-
+  <div class="app">
+    App组件
+    <home></home>
+    <!-- <async-category></async-category> -->
+    <suspense>
+      <template #default>
+        <async-category></async-category>
+      </template>
+      <template #fallback>
+        <loading></loading>
+      </template>
+    </suspense>
   </div>
 </template>
 
@@ -46,7 +56,8 @@ const AsyncCategory = defineAsyncComponent({
 export default {
   component: {
     Home,
-    AsyncCategory
+    AsyncCategory,
+    Loading
   }
 }
 </script>
