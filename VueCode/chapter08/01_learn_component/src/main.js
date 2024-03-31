@@ -1,4 +1,4 @@
 import { createApp } from 'vue'
-import App from './04_组件的生命周期/App.vue'
+import App from './05_组件的v-model/App.vue'
 
 createApp(App).mount('#app')
