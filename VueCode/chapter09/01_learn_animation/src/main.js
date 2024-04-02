@@ -1,4 +1,4 @@
 import { createApp } from 'vue'
-import App from './02_CSS_animation动画的实现/App.vue'
+import App from './03_同时用transition和animation/App.vue'
 
 createApp(App).mount('#app')
