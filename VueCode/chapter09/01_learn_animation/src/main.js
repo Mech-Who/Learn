@@ -1,4 +1,4 @@
 import { createApp } from 'vue'
-import App from './03_同时用transition和animation/App.vue'
+import App from './04_过渡模式mode/App.vue'
 
 createApp(App).mount('#app')
