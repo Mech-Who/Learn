@@ -1,4 +1,4 @@
 import { createApp } from 'vue'
-import App from './04_过渡模式mode/App.vue'
+import App from './06_结合Animate第三方动画库使用/App.vue'
 
 createApp(App).mount('#app')
