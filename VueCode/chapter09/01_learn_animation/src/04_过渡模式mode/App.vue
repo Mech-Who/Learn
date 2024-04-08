@@ -2,7 +2,7 @@
   <div class="app">
     <button @click="isShow = !isShow">显示/隐藏</button>
     <!-- 1. 切换显示和隐藏动态组件 -->
-    <transition name="why">
+    <transition name="why" mode="out-in">
       <component :is="isShow ? 'home': 'about'">Hello World</component>
     </transition>
   </div>
