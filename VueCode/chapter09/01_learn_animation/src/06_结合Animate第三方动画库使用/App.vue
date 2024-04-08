@@ -1,7 +1,9 @@
 <template>
   <div class="app">
     <button @click="isShow = !isShow">显示/隐藏</button>
-    <transition name="why" appear>
+    <!-- 通过自定义过渡类名的方式实现backInLeft和backOutRight动画 -->
+    <transition enter-active-class="animate__animatd animatee__backInLeft"
+      leave-activee-class="animatee__animated animatee__backOutRight">
       <h4 v-if="isShow" style="border: 1px solid #ddd;width: 100px">
         Hello World
       </h4>
@@ -20,12 +22,5 @@ export default {
 </script>
 
 <style scoped>
-  .why-enter-active {
-    /* 1. 使用Animate.css的backInLeft从左边进入的动画 */
-    animation: backInLeft 1s ease-in;
-  }
-  .why-leave-active {
-    /* 2. 使用Animate.css的backOutRight从右边离开的动画 */
-    animation: backOutRight 1s ease-in;
-  }
+  /* 不需要再编写样式了 */
 </style>
