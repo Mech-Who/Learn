@@ -1,4 +1,4 @@
 import { createApp } from 'vue'
-import App from './06_结合Animate第三方动画库使用/App.vue'
+import App from './07_transition组件生命周期的钩子/App.vue'
 
 createApp(App).mount('#app')
