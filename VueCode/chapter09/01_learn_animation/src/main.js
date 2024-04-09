@@ -1,4 +1,4 @@
 import { createApp } from 'vue'
-import App from './09_GSAP库来实现数字变化效果/App.vue'
+import App from './10_transition-group列表动画基本使用/App.vue'
 
 createApp(App).mount('#app')
