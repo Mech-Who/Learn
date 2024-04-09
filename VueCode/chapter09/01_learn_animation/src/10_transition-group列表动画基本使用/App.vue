@@ -39,6 +39,8 @@ export default {
 <style scoped>
 .item {
   margin-right: 10px;
+  /* span元素做动画，需要将行内元素改为行内块级标签 */
+  display: inline-block;
 }
 
 .why-enter-from,
@@ -50,5 +52,15 @@ export default {
 .why-enter-active,
 .why-leave-active {
   transition: all 1s ease;
+}
+
+.why-move {
+  /* 为需要移动的span元素添加过渡效果 */
+  transition: transform 1s ease;
+}
+
+.why-leave-active {
+  /* span元素脱离标准文档流 */
+  position: absolute;
 }
 </style>
