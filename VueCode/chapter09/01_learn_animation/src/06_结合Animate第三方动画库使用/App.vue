@@ -3,7 +3,7 @@
     <button @click="isShow = !isShow">显示/隐藏</button>
     <!-- 通过自定义过渡类名的方式实现backInLeft和backOutRight动画 -->
     <transition enter-active-class="animate__animatd animatee__backInLeft"
-      leave-activee-class="animatee__animated animatee__backOutRight">
+      leave-active-class="animatee__animated animatee__backOutRight">
       <h4 v-if="isShow" style="border: 1px solid #ddd;width: 100px">
         Hello World
       </h4>

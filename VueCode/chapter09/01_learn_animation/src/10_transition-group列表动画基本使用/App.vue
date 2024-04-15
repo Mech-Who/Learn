@@ -46,7 +46,7 @@ export default {
 .why-enter-from,
 .why-leave-to {
   opacity: 0;
-  transform: traanslateY(30px);
+  transform: translateY(30px);
 }
 
 .why-enter-active,
