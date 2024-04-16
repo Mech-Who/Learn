@@ -1,5 +1,5 @@
 import { createApp } from 'vue'
-import App from './01_Mixin/App.vue'
+import App from './02_extends/App.vue'
 
 let app = createApp(App)
 
