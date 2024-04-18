@@ -1,5 +1,5 @@
 import { createApp } from 'vue'
-import App from './05_reactive其他知识点/App.vue'
+import App from './06_ref其他知识点/App.vue'
 
 let app = createApp(App)
 
