@@ -1,5 +1,5 @@
 import { createApp } from 'vue'
-import App from './04_数据响应式API/App.vue'
+import App from './05_reactive其他知识点/App.vue'
 
 let app = createApp(App)
 
