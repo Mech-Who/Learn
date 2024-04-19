@@ -1,5 +1,5 @@
 import { createApp } from 'vue'
-import App from './07_computed函数的基本使用/App.vue'
+import App from './08_watch使用/App.vue'
 
 let app = createApp(App)
 
