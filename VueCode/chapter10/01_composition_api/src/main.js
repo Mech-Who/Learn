@@ -1,5 +1,5 @@
 import { createApp } from 'vue'
-import App from './09_生命周期钩子/App.vue'
+import App from './10_Provide和Inject/App.vue'
 
 let app = createApp(App)
 
