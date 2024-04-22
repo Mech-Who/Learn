@@ -12,15 +12,11 @@ import { reactive, watch } from 'vue';
 export default {
   setup() {
     const info = reactive({name: "coderwhy", age: 18});
-    // 1. 传入一个getter函数, 该函数引用响应式对象info
-    watch(() => info.name, (newValue, oldValue) => {
-      // 2. 监听info对象中name的变化
-      console.log("newValue:", newValue, "oldValue:", oldValue);
+    // 2. 传入reactive函数返回的响应式对象
+    watch(info, (newValue, oldValue) => {
+      console.log("newValue: ", newValue,"oldValue: ", oldValue);
     })
-    const changeData = () => {
-      info.name = "kobe"; // 3. 改变info对象中的name
-
-    }
+    const changeData = () => info.name = "kobe";
     return {
       changeData,
       info
