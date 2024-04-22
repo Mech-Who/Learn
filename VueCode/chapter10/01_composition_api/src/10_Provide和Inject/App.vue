@@ -1,15 +1,20 @@
 <template>
   <div class="app">
-    App组价
+    App组件
     <div>{{ name }} - {{ age }}</div>
     <div>{{ counter }}</div>
     <button @click="increment">App组件+1</button>
+    <home></home>
   </div>
 </template>
 
 <script>
 import { provide, ref } from 'vue';
+import Home from './Home.vue'
 export default {
+  components: {
+    Home
+  },
   setup() {
     const name = "coderwhy";  // 普通数据
     const age = 18;
