@@ -12,7 +12,13 @@
 import useCounter from 'hooks/useCounter.js';
 export default {
   setup() {
+    // 1. 计数器案例的逻辑代码
     const { counter, doubleCounter, increment, decrement } = useCounter();
+
+    // 2. 修改网页的标题
+    const titleRef = ref("coder");
+    document.title = titleRef.value // 更新网页标题为coder
+
     return {
       counter,
       doubleCounter,
