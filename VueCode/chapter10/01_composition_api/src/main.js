@@ -1,5 +1,5 @@
 import { createApp } from 'vue'
-import App from './10_Provide和Inject/App.vue'
+import App from './11_compositionAPI综合练习/App.vue'
 
 let app = createApp(App)
 
