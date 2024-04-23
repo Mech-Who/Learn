@@ -16,8 +16,11 @@ export default {
     const { counter, doubleCounter, increment, decrement } = useCounter();
 
     // 2. 修改网页的标题
-    const titleRef = ref("coder");
-    document.title = titleRef.value // 更新网页标题为coder
+    const titleRef = useTitle("coder");
+    setTimeout(() => {
+      // 3. 过3s后修改titleRef的值，被useTitle函数的watch监听到，就会修改标题
+      titleRef.value = "why"
+    }, 3000)
 
     return {
       counter,
