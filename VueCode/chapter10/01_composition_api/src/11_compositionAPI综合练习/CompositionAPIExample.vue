@@ -5,6 +5,15 @@
     <div>当前计数*2: {{ doubleCounter }}</div>
     <button @click="increment">+1</button>
     <button @click="decrement">-1</button>
+
+    <!-- 3. 显示页面滚动位置 -->
+    <p style="width: 3000px;height: 5000px">
+      width:3000px height:5000px的，模拟页面滚动
+    </p>
+    <div style="position: fixed; top: 20px; right: 20px">
+      <div>scrollX: {{ scrollX }}</div>
+      <div>scrollY: {{ scrollY }}</div>
+    </div>
   </div>
 </template>
 
@@ -22,11 +31,21 @@ export default {
       titleRef.value = "why"
     }, 3000)
 
+    // 3. 监听页面滚动
+    const scrollX = ref(0);
+    const scrollY = ref(0);
+    document.addEventListener("scroll", () => {
+      scrollX.value = window.scrollX;
+      scrollY.value = window.scrollY;
+    });
+
     return {
       counter,
       doubleCounter,
       increment,
-      decrement
+      decrement,
+      scrollX,
+      scrollY
     }
   }
 }
