@@ -9,13 +9,10 @@
 </template>
 
 <script>
-import { ref, computed } from 'vue';
+import useCounter from 'hooks/useCounter.js';
 export default {
   setup() {
-    let counter = ref(100);
-    let doubleCounter = computed(() => counter.value * 2)
-    const increment = () => counter.value++;
-    const decrement = () => counter.value--;
+    const { counter, doubleCounter, increment, decrement } = useCounter();
     return {
       counter,
       doubleCounter,
