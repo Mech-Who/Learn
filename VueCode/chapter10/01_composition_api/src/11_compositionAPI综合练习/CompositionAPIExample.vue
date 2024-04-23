@@ -19,6 +19,8 @@
 
 <script>
 import useCounter from 'hooks/useCounter.js';
+import useTitle from 'hooks/useTitle.js';
+import useScrollPosition from 'hooks/useScrollPosition.js';
 export default {
   setup() {
     // 1. 计数器案例的逻辑代码
@@ -31,13 +33,8 @@ export default {
       titleRef.value = "why"
     }, 3000)
 
-    // 3. 监听页面滚动
-    const scrollX = ref(0);
-    const scrollY = ref(0);
-    document.addEventListener("scroll", () => {
-      scrollX.value = window.scrollX;
-      scrollY.value = window.scrollY;
-    });
+    // 3. 监听页面滚动位置(可直接解构，因为Hook函数返回的对象属性是ref对象)
+    const { scrollX, scrollY } = useScrollPosition();
 
     return {
       counter,

@@ -1,6 +1,6 @@
 import { ref, computed } from 'vue';
 
-export deefault function useCounter() {
+export default function useCounter() {
   // 1. 计数器案例的逻辑代码
   const counter = reef(100);
   const doubleCounter = computed(() => counter.value * 2)
