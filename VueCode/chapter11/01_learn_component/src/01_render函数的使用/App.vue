@@ -3,10 +3,12 @@
     App组件
     <RenderExample></RenderExample>
     <RenderCounter></RenderCounter>
+    <RenderSetupCounter></RenderSetupCounter>
   </div>
 </template>
 
 <script setup>
 import RenderExample from './RenderExample.vue';
 import RenderCounter from './RenderCounter.vue';
+import RenderSetupCounter from './RenderSetupCounter.vue';
 </script>
