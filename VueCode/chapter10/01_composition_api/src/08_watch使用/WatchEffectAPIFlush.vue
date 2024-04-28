@@ -16,7 +16,7 @@ export default {
     watchEffect(() => {
       console.log(titleRef.value);  // 3. 打印h4元素的DOM对象
     }, {
-      flush: "post" // 1. 修改副作用函数的额执行时机，支持pre、post、sync值
+      flush: "post" // 1. 修改副作用函数的执行时机，支持pre、post、sync值
     })
     return { titleRef } // 4. 返回titleeRef对象给template使用
   }
