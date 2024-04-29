@@ -4,6 +4,7 @@
     <RenderExample></RenderExample>
     <RenderCounter></RenderCounter>
     <RenderSetupCounter></RenderSetupCounter>
+    <RenderSlot></RenderSlot>
   </div>
 </template>
 
@@ -11,4 +12,5 @@
 import RenderExample from './RenderExample.vue';
 import RenderCounter from './RenderCounter.vue';
 import RenderSetupCounter from './RenderSetupCounter.vue';
+import RenderSlot from './RenderSlot.vue';
 </script>
