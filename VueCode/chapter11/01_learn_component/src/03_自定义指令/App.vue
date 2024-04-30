@@ -3,14 +3,16 @@
     App组件
     <!-- <DefaultImp></DefaultImp> -->
     <!-- <CustomLocalDirective></CustomLocalDirective> -->
-    <DirectiveLifeCycle></DirectiveLifeCycle>
+    <!-- <DirectiveLifeCycle></DirectiveLifeCycle> -->
+    <DirectiveParamAndModifier></DirectiveParamAndModifier>
   </div>
 </template>
 
 <script setup>
 // import DefaultImp from './DefaultImp.vue';
 // import CustomLocalDirective from './CustomLocalDirective.vue';
-import DirectiveLifeCycle from './DirectiveLifeCycle.vue';
+// import DirectiveLifeCycle from './DirectiveLifeCycle.vue';
+import DirectiveParamAndModifier from './DirectiveParamAndModifier.vue';
 </script>
 
 <style scoped></style>
