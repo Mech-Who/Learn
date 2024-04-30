@@ -1,5 +1,5 @@
 {
-  "name": "01_learn_component",
+  "name": "02_test",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -11,7 +11,6 @@
     "vue": "^3.2.13"
   },
   "devDependencies": {
-    "@vue/babel-plugin-jsx": "^1.2.2",
     "@vue/cli-plugin-babel": "~5.0.0",
     "@vue/cli-service": "~5.0.0"
   }
