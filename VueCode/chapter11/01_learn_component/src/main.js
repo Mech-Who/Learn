@@ -1,6 +1,7 @@
 import { createApp } from 'vue'
 import registerDirectives from './directives/index.js'
-import pluginObject from './plugins/plugins_object.js'
+// import pluginObject from './plugins/plugins_object.js'
+import pluginFunction from './plugins/plugins_function.js'
 import App from './05_插件的使用/App.vue'
 
 let app = createApp(App)
@@ -14,6 +15,8 @@ app.directive("focus", {
 // 3. 自定义全局指令v-format-time
 registerDirectives(app);
 
-app.use(pluginObject);  // 4. 安装插件时，会执行插件的install函数
+// app.use(pluginObject);  // 4. 安装插件时，会执行插件的install函数
+
+app.use(pluginFunction) // 4. 使用app.use函数安装插件
 
 app.mount('#app')
