@@ -3,13 +3,18 @@
     App组件
     <teleport to="body">
       <h4>h4挂载到body上，而不是id=app的div上</h4>
+      <HelloWorld></HelloWorld>
     </teleport>
   </div>
 </template>
 
 <script>
-export default {}
+import HelloWorld from './HelloWorld.vue';
+export default {
+  components: {
+    HelloWorld
+  }
+}
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>
