@@ -2,7 +2,7 @@ import { createApp } from 'vue'
 import registerDirectives from './directives/index.js'
 // import pluginObject from './plugins/plugins_object.js'
 import pluginFunction from './plugins/plugins_function.js'
-import App from './05_插件的使用/App.vue'
+import App from './06_nexttick的使用/App.vue'
 
 let app = createApp(App)
 // 1. 自定义v-focus全局指令，该指令可以全局使用
