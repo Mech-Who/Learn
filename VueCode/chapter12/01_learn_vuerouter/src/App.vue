@@ -1,26 +1,28 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="nav">
+    <!-- 1. 切换路由，即切换页面 -->
+    <router-link class="tab" to="/home">首页</router-link>
+    <router-link class="tab" to="/about">关于</router-link>
+  </div>
+  <!-- 2. 路由组件的占位 -->
+  <router-view></router-view>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
 export default {
   name: 'App',
-  components: {
-    HelloWorld
-  }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+.nav {
+  margin: 20px 0px;
+}
+
+.tab {
+  border: 1px solid #ddd;
+  margin-right: 8px;
+  padding: 2px 20px;
+  text-decoration: none;
 }
 </style>
