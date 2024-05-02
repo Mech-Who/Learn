@@ -21,7 +21,7 @@ const routes = [ // 2. 配置路由映射表（路径 -> 组件）
     component: () => import(/* webpackChunkName: "about-chunk" */ '../pages/About.vue')
   },{
     // 8. 动态路径参数以冒号开始，例如，:username代表动态路径参数
-    path: '/user/:username',
+    path: '/user/:username/id/:id',
     component: () => import('../pages/User.vue')
   }
 ]

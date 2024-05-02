@@ -3,7 +3,8 @@
     <!-- 1. 切换路由，即切换页面 -->
     <router-link class="tab" to="/home">首页</router-link>
     <router-link class="tab" to="/about">关于</router-link>
-    <router-link class="tab" to="/user/why">用户</router-link>
+    <!-- <router-link class="tab" to="/user/why/">用户</router-link> -->
+    <router-link class="tab" to="/user/why/id/0001">用户</router-link>
   </div>
   <!-- 2. 路由组件的占位 -->
   <router-view></router-view>
