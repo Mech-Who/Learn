@@ -22,10 +22,18 @@ export default {
       // 3. 跳转到“关于”页面，Options API中通过this.$router.push调用方法。
       // 3.1 接收字符串类型
       // router.push("/about")
+      // 4. router.push方法传递查询参数
+      // 4.1 通过URL查询字符串方式向目标页面传递参数
+      // router.push("/about?name=coder&age=20")
       // 3.2 接收对象类型的参数，功能和上面一样
       router.push({
         // 3.3 指定跳转页面路径
-        path: "/about"
+        path: "/about",
+        // 4.2 通过query属性向目标页面传递参数
+        query: {
+          name: 'coder',
+          age: 20
+        }
       })
     }
     return { jumpToAbout }
