@@ -6,13 +6,26 @@ const routes = [ // 2. 配置路由映射表（路径 -> 组件）
     redirect: '/home' // 3. 路由默认路径（/），重定向到/home路径 
   },{
     path: '/home',
-    // 6. 指定路由名称
-    name: 'home',
     // 4. 路由懒加载，加载Home和About组件
     // 5. import函数的参数中添加了魔法注释webpackChunkName
-    component: () => import(/* webpackChunkName: "home-chunk" */ '../pages/Home.vue')
+    component: () => import(/* webpackChunkName: "home-chunk" */ '../pages/Home.vue'),
+    children: [ // 1. 在Home页面下注册二级路由
+      {
+        path: "",
+        // 2. 访问/home路径时，重定向到/home/message路径
+        redirect: "/home/message"
+      },{
+        path: "message",  // 2. 二级路由path不支持/message或/home/message，直接填message即可
+        component: () => import("../pages/HomeMessage.vue")
+      },{
+        path: "shops",
+        component: () => import("../pages/HomeShops.vue")
+      }
+    ]
   },{
     path: '/about',
+    // 6. 指定路由名称
+    name: 'about',
     // 7. 为路由添加自定义数据
     meta: {
       name: 'why',
