@@ -23,6 +23,11 @@ const routes = [ // 2. 配置路由映射表（路径 -> 组件）
     // 8. 动态路径参数以冒号开始，例如，:username代表动态路径参数
     path: '/user/:username/id/:id',
     component: () => import('../pages/User.vue')
+  },{
+    // 1. 使用通配符*来匹配任意路径，通配符由应放在最后的
+    path: "/:pathMatch(.*)",  // product/1001 得到 product/1001
+    path: "/:pathMatch(.*)*", // product/1001 得到 ["product", "1001"]
+    component: () => import("../pages/NotFound.vue")
   }
 ]
 
