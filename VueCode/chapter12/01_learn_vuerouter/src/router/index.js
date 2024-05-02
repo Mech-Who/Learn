@@ -19,6 +19,10 @@ const routes = [ // 2. 配置路由映射表（路径 -> 组件）
       age: 18
     },
     component: () => import(/* webpackChunkName: "about-chunk" */ '../pages/About.vue')
+  },{
+    // 8. 动态路径参数以冒号开始，例如，:username代表动态路径参数
+    path: '/user/:username',
+    component: () => import('../pages/User.vue')
   }
 ]
 
