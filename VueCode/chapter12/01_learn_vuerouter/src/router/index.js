@@ -51,4 +51,12 @@ const router = createRouter({
   history: createWebHistory()  // 4. 指定用history路由
 })
 
+// 3. 商品分类页面的路由配置
+const categoryRoute = {
+  path: "/category",
+  component: () => import('../pages/Category.vue')
+}
+
+// 4. 动态添加顶级路由对象
+router.addRoute(categoryRoute)
 export default router
