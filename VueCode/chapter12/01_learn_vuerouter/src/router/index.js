@@ -11,7 +11,8 @@ const routes = [ // 2. 配置路由映射表（路径 -> 组件）
     component: () => import(/* webpackChunkName: "home-chunk" */ '../pages/Home.vue'),
     children: [ // 1. 在Home页面下注册二级路由
       {
-        path: "",
+        path: "home",
+        name: "home",
         // 2. 访问/home路径时，重定向到/home/message路径
         redirect: "/home/message"
       },{
@@ -59,4 +60,10 @@ const categoryRoute = {
 
 // 4. 动态添加顶级路由对象
 router.addRoute(categoryRoute)
+
+// 5. 为现有路由（home）添加二级路由
+router.addRoute("home", {
+  path: "comment",
+  component: () => import("../pages/HomeComment.vue")
+})
 export default router
