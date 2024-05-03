@@ -24,6 +24,9 @@ const routes = [ // 2. 配置路由映射表（路径 -> 组件）
       }
     ]
   },{
+    path: '/login',
+    component: () => import("../pages/Login.vue")
+  },{
     path: '/about',
     // 6. 指定路由名称
     name: 'about',
@@ -66,4 +69,17 @@ router.addRoute("home", {
   path: "comment",
   component: () => import("../pages/HomeComment.vue")
 })
+
+// 6. 全局前置守卫
+router.beforeEach((to, from) => {
+  if (to.path !== '/login') { // 如果不是登录页面
+    const token = window.sessionStorage.getItem('token')
+    if (!token) { // 通过token判断用户是否登录，没登录则导航到login页面
+      return {
+        path: '/login'
+      }
+    }
+  }
+})
+
 export default router
