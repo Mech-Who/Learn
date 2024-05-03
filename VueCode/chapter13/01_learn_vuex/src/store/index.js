@@ -3,7 +3,9 @@ const store = createStore({
   // 1. 定义全局共享的状态
   state() {
     return {
-      counter: 0
+      counter: 0,
+      name: 'why',
+      age: 18
     }
   },
   // 2. 在mutations中修改全局状态
