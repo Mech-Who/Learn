@@ -14,7 +14,13 @@
     <button @click="jumpToAbout">关于</button>
   </div>
   <!-- 2. 路由组件的占位 -->
-  <router-view></router-view>
+  <router-view v-slot="props">
+    <keep-alive>
+      <transition name="why">
+        <component :is="props.Component"></component>
+      </transition>
+    </keep-alive>
+  </router-view>
 </template>
 
 <script>
@@ -57,5 +63,14 @@ export default {
   margin-right: 8px;
   padding: 2px 20px;
   text-decoration: none;
+}
+
+.why-enter-from .why-leave-to {
+  opacity: 0;
+}
+
+.why-enter-active,
+.why-leave-active {
+  transition: opacity 1s ease;
 }
 </style>
