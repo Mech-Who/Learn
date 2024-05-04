@@ -1,2 +1,3 @@
-import { useState } from './useState'
-export { useState }
+import { useState } from './useState';
+import { useGetters } from './useGetters';
+export { useState, useGetters } // 1. 导出useGetters函数

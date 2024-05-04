@@ -2,7 +2,7 @@ import { computed } from 'vue';
 import { mapState, useStore } from 'vuex';
 
 // 1. 自定义一个useState Hook函数
-export default useState(mapper) {
+export function useState(mapper) {
   // 2. 获取store对象
   const store = useStore();
   // 3. 获取映射后的对象
