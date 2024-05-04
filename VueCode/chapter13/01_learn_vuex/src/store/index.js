@@ -29,7 +29,7 @@ const store = createStore({
       state.counter += payload.num  // 2. 修改counter值
     }
   },
-  // 2. 在getters中定义方法
+  // 3. 在getters中定义方法
   getters: {
     // 6. 计算购买的书籍总价
     totalPrice(state, getters) { // 参数一：state对象，参数二：getters对象
@@ -52,6 +52,20 @@ const store = createStore({
         }
         return totalPrice
       }
+    }
+  },
+  // 4. actions的基本使用 
+  actions: {
+    incrementAction(context) {
+      // 5. setTimeout模拟异步
+      setTimeout(() => {
+        context.commit('increment') // 6. 提交一个type为increment的mutation
+      })
+    },
+    decrementAction(context) {
+      // 7. ES6解构context对象
+      let {commit, dispatch, state, rootState, getters, rootGetters} = context
+      commit('decrement') // 8. 提交一个type为decrement的mutation
     }
   }
 })
