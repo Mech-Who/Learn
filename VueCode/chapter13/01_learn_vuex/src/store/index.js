@@ -23,13 +23,18 @@ const store = createStore({
       state.counter--
     }
   },
+  // 2. 在getters中定义方法
   getters: {
-    totalPrice(state) { // 6. 计算购买的书籍总价
+    // 6. 计算购买的书籍总价
+    totalPrice(state, getters) { // 参数一：state对象，参数二：getters对象
       let totalPrice = 0;
       for (const book of state.books) {
         totalaPrice += book.count * book.price
       }
-      return totalPrice
+      return totalPrice * getters.currentDiscount // 通过getters访问当前的折扣
+    },
+    currentDiscount(state) {  // 3. 获取当前的折扣
+      return state.discount
     }
   }
 })
