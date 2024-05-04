@@ -21,6 +21,10 @@ const store = createStore({
     },
     decrement(state) {
       state.counter--
+    },
+    // 1. 定义类型为incrementN的mutation函数，这里的payload是对象类型
+    incrementN(state, payload){
+      state.counter += payload.num  // 2. 修改counter值
     }
   },
   // 2. 在getters中定义方法
