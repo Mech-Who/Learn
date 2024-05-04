@@ -13,11 +13,15 @@ import { computed } from 'vue';
 export default {
   setup() {
     const store = useStore();
-    // 1. 在computed中通过store读取状态
-    const counter = computed(() => store.state.counter)
-    const home = computed(() => store.state.home);
-    const hyAge = computed(() => store.state.age);
-    return { counter, home, hyAge }
+    const storeStateFns = mapState(['counter', 'name', 'age'])
+    // storeStateFns打印为：{name: function, age: function, ......}
+    const storeState = {}
+    Object.keys(storeStateFns).forEach(fnKey => {
+      const fn = storeStateFns[fnKey].bind({$store: store}) // 1. 绑定this为{$store:store}
+      storeState[fnKey] = computed(fn)  // 2. 将普通函数转换为计算属性函数
+    })
+    // storeState打印为：{ name: ref, age: ref, ......}
+    return { ...storeState }
   }
 }
 </script>
