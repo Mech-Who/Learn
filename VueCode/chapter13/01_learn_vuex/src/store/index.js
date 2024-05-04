@@ -35,6 +35,17 @@ const store = createStore({
     },
     currentDiscount(state) {  // 3. 获取当前的折扣
       return state.discount
+    },
+    totalPriceByName(state) {
+      return   (bookName) => { // 7. 返回一个函数，该函数接收一个bookName参数
+        let totalPrice = 0;
+        for (const book of state.books) {
+          if(bookName ===book.name){  // 8. 只计算当前那本书的总价
+            totalPrice += book.count * book.price
+          }
+        }
+        return totalPrice
+      }
     }
   }
 })
