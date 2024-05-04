@@ -1,4 +1,6 @@
 import { createStore } from 'vuex';
+import { INCREMENT_N } from './mutation-types'
+
 const store = createStore({
   // 1. 定义全局共享的状态
   state() {
@@ -23,7 +25,7 @@ const store = createStore({
       state.counter--
     },
     // 1. 定义类型为incrementN的mutation函数，这里的payload是对象类型
-    incrementN(state, payload){
+    [INCREMENT_N](state, payload){
       state.counter += payload.num  // 2. 修改counter值
     }
   },
