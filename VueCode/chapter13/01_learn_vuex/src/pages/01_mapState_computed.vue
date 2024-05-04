@@ -10,7 +10,15 @@
 import { mapState } from 'vuex';
 
 export default {
-  computed: mapState(['counter', 'name']) // 3. mapState函数接收数组类型参数
+  computed: {
+    counter() {
+      return this.$store.state.counter
+    },
+    ...mapState(['name']),  // 4. mapState函数的解构
+    ...mapState({ // 5. mapState函数的解构
+      hyAge: 'age'
+    })
+  }
 }
 </script>
 
