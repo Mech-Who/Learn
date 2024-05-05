@@ -1,11 +1,12 @@
 import { createStore } from 'vuex';
 import { INCREMENT_N } from './mutation-types'
+import { useAttrs } from 'vue';
 
 const store = createStore({
   // 1. 定义全局共享的状态
-  state() {
+  state() { // 根模块state
     return {
-      counter: 0,
+      counter: 0, // 根模块的便来那个
       name: 'why',
       age: 18,
       books: [  // 5. 购物车书籍列表
@@ -13,7 +14,7 @@ const store = createStore({
         {name: "React", count: 5, price: 20},
         {name: "webpack", count: 4, price: 25},
       ],
-      discount: 0.9 // 书籍打9折，该变量暂时没用到，在下一个案例中会用到
+      discount: 0.9, // 书籍打9折，该变量暂时没用到，在下一个案例中会用到
       uuid: null
     }
   },
@@ -92,6 +93,11 @@ const store = createStore({
         })
       })
     }
+  },
+  // 10. 引入home和user两个子模块
+  modules: {
+    home: home, // 11. key指定模块的名称，value指定引入的模块
+    user // 12. ES6简写语法，相当于user: user
   }
 })
 
