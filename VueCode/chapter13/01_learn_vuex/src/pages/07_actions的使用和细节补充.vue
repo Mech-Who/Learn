@@ -20,6 +20,14 @@ export default {
     const decrement = () => {
       store.dispatch("decrementAction") // 分发action
     }
+    const addTen = () => {
+      // 1. 分发action，并传递对象参数
+      // store.dispatch("incrementNAction", {num:10})
+      store.dispatch({
+        type: "incrementNAction",
+        num: 10
+      })
+    }
     return { decrement }
   }
 }

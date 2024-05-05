@@ -66,6 +66,9 @@ const store = createStore({
       // 7. ES6解构context对象
       let {commit, dispatch, state, rootState, getters, rootGetters} = context
       commit('decrement') // 8. 提交一个type为decrement的mutation
+    },
+    incrementNAction(context, payload) {  // 1. payload接收dispatch传递过来的参数
+      context.commit(INCREMENT_N, payload)  // 2. payload值为{num:10}，提交给mutation
     }
   }
 })
