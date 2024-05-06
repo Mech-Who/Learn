@@ -10,7 +10,7 @@ const userModule = {
     // 2. user模块的mutation和getter函数接收的第一个参数是局部状态(state)
     doubleUserCount(state) {
       return state.userCounter * 2
-    }
+    },
     // 4. user模块的getter函数，根节点状态（rootState）作为第三个参数暴露出来
     userCountAddRootCount(state, getters, rootState) {
       return state.userCounter + rootState.counter
