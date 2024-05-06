@@ -8,17 +8,19 @@
 </template>
 
 <script>
-import { mapState, mapGetters, mapMutations, mapActions } from 'vuex';
+import { createNamespacedHelpers } from 'vuex';
+// 方式三
+const { mapState, mapGetters, mapMutations, mapActions } = createNamespacedHelpers('home')
 export default {
-  computed: { // 方式二
-    ...mapState('home', ['homeCounter']),
-    ...mapGetters('home', ['doubleHomeCount'])
+  computed: { // 方式三
+    ...mapState(['homeCounter']),
+    ...mapGetters(['doubleHomeCount'])
   },
-  methods: {  // 方式二
-    ...mapMutations('home', {
+  methods: {  // 方式三
+    ...mapMutations({
       homeIncrementCommit: "increment"
     }),
-    ...mapActions('home', ['incrementAction'])
+    ...mapActions(['incrementAction'])
   }
 }
 </script>
