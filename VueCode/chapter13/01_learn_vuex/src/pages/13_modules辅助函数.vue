@@ -10,21 +10,15 @@
 <script>
 import { mapState, mapGetters, mapMutations, mapActions } from 'vuex';
 export default {
-  computed: { // 方式一
-    ...mapState({
-      homeCounter: state => state.home.homeCounter
-    }),
-    ...mapGetters({
-      doubleHomeCount: "home/doubleHomeCount"
-    })
+  computed: { // 方式二
+    ...mapState('home', ['homeCounter']),
+    ...mapGetters('home', ['doubleHomeCount'])
   },
-  methods: {  // 方式一
-    ...mapMutations({
-      homeIncrementCommit: "home/increment"
+  methods: {  // 方式二
+    ...mapMutations('home', {
+      homeIncrementCommit: "increment"
     }),
-    ...mapActions({
-      incrementAction: "home/incrementAction"
-    })
+    ...mapActions('home', ['incrementAction'])
   }
 }
 </script>
