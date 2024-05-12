@@ -65,7 +65,8 @@ export default {
   text-decoration: none;
 }
 
-.why-enter-from .why-leave-to {
+.why-enter-from
+.why-leave-to {
   opacity: 0;
 }
 

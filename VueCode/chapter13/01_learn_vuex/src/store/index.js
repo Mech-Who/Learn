@@ -6,13 +6,13 @@ const store = createStore({
   // 1. 定义全局共享的状态
   state() { // 根模块state
     return {
-      counter: 0, // 根模块的便来那个
+      counter: 0, // 根模块的变量
       name: 'why',
       age: 18,
       books: [  // 5. 购物车书籍列表
-        {name: "vue.js", count: 10, price: 10},
+        {name: "Vue.js", count: 10, price: 10},
         {name: "React", count: 5, price: 20},
-        {name: "webpack", count: 4, price: 25},
+        {name: "Webpack", count: 4, price: 25},
       ],
       discount: 0.9, // 书籍打9折，该变量暂时没用到，在下一个案例中会用到
       uuid: null
