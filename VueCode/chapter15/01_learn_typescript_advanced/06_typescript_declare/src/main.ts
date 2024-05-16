@@ -20,3 +20,10 @@ console.log(getAppName());  // ok
 const p = new Person("why", 18) // ok
 console.log(p);
 
+// 6. 全局使用$函数不会提示报错
+$.ajax({
+  url: "https://httpbin.org/get",
+  success: (res: any) => {
+    console.log(res);
+  }
+});

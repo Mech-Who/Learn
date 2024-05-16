@@ -32,3 +32,8 @@ declare module "lodash" {
   export function join(args: any[]): any; // 声明模块中有一个join函数，即lodash.join()
   // 可以继续导出lodash的其他方法
 }
+
+// 6. 声明$命名空间
+declare namespace $ {
+  function ajax(settings: any): void
+}
