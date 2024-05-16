@@ -10,3 +10,7 @@ console.log(appVersion); // 报错：Cannot find name 'appVersion'.
 
 // 2. 使用全局函数
 console.log(getAppName());  // ok
+
+// 3. 使用全局类
+const p = new Person("why", 18) // ok
+console.log(p);
