@@ -26,3 +26,9 @@ declare module '*.jpeg'
 declare module '*.png'
 declare module '*.svg'
 declare module '*.gif'
+
+// 5. 声明导入的模块
+declare module "lodash" {
+  export function join(args: any[]): any; // 声明模块中有一个join函数，即lodash.join()
+  // 可以继续导出lodash的其他方法
+}
