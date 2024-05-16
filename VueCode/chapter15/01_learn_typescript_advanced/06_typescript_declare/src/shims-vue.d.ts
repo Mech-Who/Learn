@@ -8,3 +8,7 @@ declare module '*.vue' {
 // 1. 声明全局变量，告诉编译器该变量已经声明了
 declare const appName: string
 declare const appVersion: string
+
+// 2. 声明全局函数，告诉编译器该函数已经声明了
+// declare function getAppName: () => void
+declare function getAppName(): void
