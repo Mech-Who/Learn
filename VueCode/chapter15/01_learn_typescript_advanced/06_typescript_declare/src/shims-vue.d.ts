@@ -19,3 +19,10 @@ declare class Person {
   age: number
   constructor(name: string, age: number)
 }
+
+// 4. 声明导入*.jpg、*.jpeg、*.png等文件
+declare module '*.jpg'
+declare module '*.jpeg'
+declare module '*.png'
+declare module '*.svg'
+declare module '*.gif'

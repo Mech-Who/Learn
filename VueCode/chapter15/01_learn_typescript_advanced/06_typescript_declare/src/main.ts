@@ -1,4 +1,6 @@
 import { createApp } from 'vue'
+// 4. 导入文件
+import nhItImg from './img/nhlt.jpg'  // ok
 import App from './App.vue'
 
 createApp(App).mount('#app')
