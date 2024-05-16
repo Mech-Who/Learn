@@ -3,24 +3,44 @@
     "target": "es5",  // 目标代码
     "module": "commonjs", // 生成代码使用的模块化
     "strict": true, // 启用严格模式
+    // 允许在项目中导入JavaScript文件
+    "allowJs": false,
+    // 在隐含any类型的表达式和声明上引发错误
+    "noImplicitAny": false,
+    // jsx的处理方式（保留原有的jsx格式）
     "jsx": "preserve",
+    // 是否帮助导入一些需要的功能模块
+    "importHelpers": true,
+    // 按照node的模块解析规则
+    // https://www.typescriptlang.org/docs/handbook/module-resolution.html#module-resolution-strategies
     "moduleResolution": "node",
     "experimentalDecorators": true,
+    // 支持es module和commonjs混合使用
     "esModuleInterop": true,  // 让ES Module和commonjs相互调用
+    // 跳过对整个库的类型检测，而仅检测你用到的类型
     "skipLibCheck": true, // 跳过整个库进行类型检查，只检查用到的类型
     "forceConsistentCasingInFileNames": true, // 强制使用大小写一致的文件名
+    // 允许合成默认模块导出
+    // import * as react from 'react': false
+    // import react from 'react': false
     "allowSyntheticDefaultImports": true,
+    // 
     "useDefineForClassFields": true,
+    // 是否要生成sourcemap文件
     "sourceMap": true,
+    // 文件路径在解析时的基本url
     "baseUrl": ".",
-    "types": [
-      "webpack-env"
-    ],
+    // 指定需要加载哪些types文件（磨人都会进行加载）
+    // "types": [
+    //   "webpack-env"
+    // ],
+    // 路径的映射设置，类似于webpack中的alias
     "paths": {
       "@/*": [
         "src/*"
       ]
     },
+    // 指定我们需要用到的库，也可以不配置，直接根据target来获取
     "lib": [
       "esnext",
       "dom",
@@ -28,6 +48,7 @@
       "scripthost"
     ]
   },
+  // 指定编译时包含的文件
   "include": [
     "src/**/*.ts",
     "src/**/*.tsx",
@@ -35,6 +56,7 @@
     "tests/**/*.ts",
     "tests/**/*.tsx"
   ],
+  // 指定编译时应该跳过的文件
   "exclude": [
     "node_modules"
   ]
