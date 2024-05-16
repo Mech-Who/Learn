@@ -17,4 +17,15 @@ function calc(num1: number, num2: number, calcFn: CalcFn) {
 }
 calc(20, 30, add)
 
+interface FakeAxiosType {
+  (config: any): Promise<any>;
+  get(url: string): string;
+  post: (url: string) => string;
+}
+const FakeAxios: FakeAxiosType = function(config: any) {
+  return Promise.resolve(config)
+}
+FakeAxios.get = function(url: string): string{ return 'liujun' }
+FakeAxios.post = function(url: string): string{ return 'coderwhy' }
+
 export {}
