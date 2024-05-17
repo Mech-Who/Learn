@@ -1,0 +1,10 @@
+# virtual environment
+myenv/
+
+# folder
+Include/
+Lib/
+Scripts/
+
+# file
+pyvenv.cfg
