@@ -3,9 +3,10 @@ import App from './App.vue'
 import router from './router/index'
 import store from './store/index'
 
-import './services/01-learn-axios-get'
-import './services/02-learn-axios-get-ts'
-import './services/03-learn-axios-post'
+// import './services/01-learn-axios-get'
+// import './services/02-learn-axios-get-ts'
+// import './services/03-learn-axios-post'
+import './services/04-learn-axios-config'
 
 // 全局引入 Element Plus 组件库
 // import ElementPlus from 'element-plus'
