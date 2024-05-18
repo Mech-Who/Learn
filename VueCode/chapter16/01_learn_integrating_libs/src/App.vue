@@ -15,6 +15,10 @@
   </div>
   <button @click="increment">+1</button>
   <button @click="decrement">-1</button>
+  <!-- ELement Plus -->
+  <el-button>Default</el-button>
+  <el-button type="primary">Primary</el-button>
+  <el-button type="success">Success</el-button>
 </template>
 
 <script lang="ts">

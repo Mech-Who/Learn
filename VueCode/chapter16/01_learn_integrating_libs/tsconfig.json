@@ -14,7 +14,9 @@
     "sourceMap": true,
     "baseUrl": ".",
     "types": [
-      "webpack-env"
+      "webpack-env",
+      // 如果使用Volar插件，需要在这里指定全局组件类型
+      "element-plus/global"
     ],
     "paths": {
       "@/*": [
