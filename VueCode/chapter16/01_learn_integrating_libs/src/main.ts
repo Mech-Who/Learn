@@ -6,7 +6,8 @@ import store from './store/index'
 // import './services/01-learn-axios-get'
 // import './services/02-learn-axios-get-ts'
 // import './services/03-learn-axios-post'
-import './services/04-learn-axios-config'
+// import './services/04-learn-axios-config'
+import './services/05-learn-axios-all'
 
 // 全局引入 Element Plus 组件库
 // import ElementPlus from 'element-plus'
