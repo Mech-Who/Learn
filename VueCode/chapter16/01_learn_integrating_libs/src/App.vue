@@ -1,4 +1,5 @@
 <template>
+  <!-- Vue Router -->
   <div class="nav">
     <router-link class="tab" to="/home">首页</router-link>
     <router-link class="tab" to="/about">关于</router-link>
@@ -8,18 +9,29 @@
       <component :is="props.Component"></component>
     </keep-alive>
   </router-view>
+  <!-- Vuex -->
+  <div>
+    <h1>当前计数：{{ $store.state.counter }}</h1>
+  </div>
+  <button @click="increment">+1</button>
+  <button @click="decrement">-1</button>
 </template>
 
 <script lang="ts">
-import { Options, Vue } from 'vue-class-component';
-import HelloWorld from './components/HelloWorld.vue';
+import { defineComponent } from 'vue';
+import { useStore } from 'vuex'
 
-@Options({
-  components: {
-    HelloWorld,
-  },
+// 1. 导入自定义的IRootState类型
+import type { IRootState } from './store/index'
+export default defineComponent({
+  name: 'App',
+  setup() {
+    const store = useStore<IRootState>()
+    const increment = () => { store.commit('increment') }
+    const decrement = () => { store.commit('decrement') }
+    return { decrement, increment }
+  }
 })
-export default class App extends Vue { }
 </script>
 
 <style>
