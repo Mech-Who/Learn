@@ -9,7 +9,13 @@ module.exports = defineConfig({
   configureWebpack: {
     // 2. 为webpack添加两个插件
     plugins: [
-      require('unplugin-element-plus/webpack')({})
+      // require('unplugin-element-plus/webpack')({})
+      AutoImport({
+        resolvers: [ElementPlusResolver()]
+      }),
+      Components({
+        resolvers: [ElementPlusResolver()]
+      })
     ]
   }
 })

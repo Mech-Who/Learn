@@ -27,12 +27,12 @@ import { useStore } from 'vuex'
 // 1. 导入自定义的IRootState类型
 import type { IRootState } from './store/index'
 
-import { ElButton } from 'element-plus'
+// import { ElButton } from 'element-plus'
 
 export default defineComponent({
   name: 'App',
   components: {
-    ElButton  // 局部注册ElButton组件
+    // ElButton  // 局部注册ElButton组件
   },
   setup() {
     const store = useStore<IRootState>()
