@@ -9,20 +9,7 @@ module.exports = defineConfig({
   configureWebpack: {
     // 2. 为webpack添加两个插件
     plugins: [
-      // 新版用法
-      // require('unplugin-auto-import/webpack').default({
-      //   resolvers: [ElementPlusResolver()]
-      // })
-      AutoImport({
-        resolvers: [ElementPlusResolver()]
-      }),
-      // 新版用法
-      // require('unplugin-vue-components/webpack').default({
-      //   resolvers: [ElementPlusResolver()]
-      // })
-      Components({
-        resolvers: [ElementPlusResolver()]
-      })
+      require('unplugin-element-plus/webpack')({})
     ]
   }
 })
