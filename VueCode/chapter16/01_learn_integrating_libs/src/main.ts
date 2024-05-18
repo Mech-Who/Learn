@@ -3,6 +3,8 @@ import App from './App.vue'
 import router from './router/index'
 import store from './store/index'
 
+import './services/01-learn-axios-get'
+
 // 全局引入 Element Plus 组件库
 // import ElementPlus from 'element-plus'
 // 全局引入 Element Plus 组件库的样式
