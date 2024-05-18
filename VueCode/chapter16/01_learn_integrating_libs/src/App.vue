@@ -1,6 +1,13 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+  <div class="nav">
+    <router-link class="tab" to="/home">首页</router-link>
+    <router-link class="tab" to="/about">关于</router-link>
+  </div>
+  <router-view v-slot="props">
+    <keep-alive>
+      <component :is="props.Component"></component>
+    </keep-alive>
+  </router-view>
 </template>
 
 <script lang="ts">
@@ -12,16 +19,18 @@ import HelloWorld from './components/HelloWorld.vue';
     HelloWorld,
   },
 })
-export default class App extends Vue {}
+export default class App extends Vue { }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+.nav {
+  margin: 20px 0px;
+}
+
+.tab {
+  border: 1px solid #ddd;
+  margin-right: 8px;
+  padding: 2px 20px;
+  text-decoration: none;
 }
 </style>
