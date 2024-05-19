@@ -20,28 +20,58 @@
   <el-button type="primary">Primary</el-button>
   <el-button type="success">Success</el-button>
   <!-- ECharts -->
-  <echart-demo></echart-demo>
+  <!-- <echart-demo></echart-demo> -->
+  <base-echart :options="options"></base-echart>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, computed } from 'vue';
 import { useStore } from 'vuex'
 // 1. 导入自定义的IRootState类型
 import type { IRootState } from './store/index'
+import type { EChartsOption } from 'echarts';
 
 // import { ElButton } from 'element-plus'
-import EchartDemo from './base-ui/echart-demo.vue'
+// import EchartDemo from './base-ui/echart-demo.vue'
+import BaseEchart from './base-ui/index';
 export default defineComponent({
   name: 'App',
   components: {
     // ElButton  // 局部注册ElButton组件
-    EchartDemo
+    // EchartDemo
+    BaseEchart
   },
   setup() {
     const store = useStore<IRootState>()
     const increment = () => { store.commit('increment') }
     const decrement = () => { store.commit('decrement') }
-    return { store, decrement, increment }
+
+    // EChart图标的配置选项
+    const options = computed<EChartsOption>(() => {
+      return {
+        title: {
+          text: "ECharts 入门实例",
+        },
+        tooltip: {},
+        legend: {
+          data: ["销量"],
+        },
+        xAxis: {
+          type: "category",
+          data: ["衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子"],
+        },
+        yAxis: {},
+        series: [
+          {
+            name: "销量",
+            type: "bar",
+            data: [5, 20, 36, 10, 10, 20],
+          }
+        ]
+      }
+    })
+
+    return { store, decrement, increment, options }
   }
 })
 </script>
