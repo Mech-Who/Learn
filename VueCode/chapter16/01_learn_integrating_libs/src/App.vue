@@ -22,6 +22,8 @@
   <!-- ECharts -->
   <!-- <echart-demo></echart-demo> -->
   <base-echart :options="options"></base-echart>
+  <base-echart :options="pieOptions"></base-echart>
+  <base-echart :options="lineOptions"></base-echart>
 </template>
 
 <script lang="ts">
@@ -71,7 +73,85 @@ export default defineComponent({
       }
     })
 
-    return { store, decrement, increment, options }
+    // Echarts的pie配置选项
+    const pieOptions = computed<EChartsOption>(() => {
+      return {
+        tooltip: {
+          trigger: 'item'
+        },
+        legend: {
+          top: '5%',
+          left: 'center'
+        },
+        series: [
+          {
+            name: 'Access From',
+            type: 'pie', // 选择图表类型为：饼图
+            radius: ['40%', '70%'], // 内半径，外半径
+            label: {
+              show: false, // 默认label隐藏
+              position: 'center'
+            },
+            emphasis: {
+              label: { // 高亮时label显示
+                show: true,
+                fontSize: '40',
+                fontWeight: 'bold'
+              }
+            },
+            labelLine: { show: false },
+            data: [
+              { value: 1048, name: 'Search Engine' },
+              { value: 735, name: 'Direct' },
+              { value: 580, name: 'Email' },
+              { value: 484, name: 'Union Ads' },
+              { value: 300, name: 'Video Ads' }
+            ]
+          }
+        ]
+      }
+    })
+
+    // Echarts的line配置选项
+    const lineOptions = computed<EChartsOption>(() => {
+      return {
+        title: {
+          text: '折线图-案例'
+        },
+        tooltip: {
+          trigger: 'axis'
+        },
+        legend: {
+          data: ['邮件', '广告']
+        },
+        grid: {
+          left: '3%',
+          right: '4%',
+          bottom: '3%'
+        },
+        xAxis: {
+          type: 'category',
+          data: ['星期一', '星期二', '星期三', '星期四', '星期五', '星期六', '星期日']
+        },
+        yAxis: {
+          type: 'value'
+        },
+        series: [
+          {
+            name: '邮件',
+            type: 'line',
+            data: [120, 132, 101, 134, 90, 230, 210]
+          },
+          {
+            name: '广告',
+            type: 'line',
+            data: ['220', '182', '191', '234', '290', '330', '310']
+          }
+        ]
+      };
+    })
+
+    return { store, decrement, increment, options, pieOptions, lineOptions }
   }
 })
 </script>
