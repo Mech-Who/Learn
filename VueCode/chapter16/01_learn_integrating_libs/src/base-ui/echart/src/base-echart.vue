@@ -9,6 +9,7 @@
 import { ref, onMounted, watchEffect } from 'vue'
 import * as echarts from 'echarts'
 import type { EChartsOption } from 'echarts'
+import useEchart from '../hooks/useEchart';
 
 interface BaseEChartsProps {
   options: EChartsOption
@@ -30,18 +31,7 @@ const echartDivRef = ref<HTMLElement>()
 
 // 4. 组件加载完成
 onMounted(() => {
-  // 5. 初始化echart实例
-  const echartInstance = echarts.init(echartDivRef.value!)  // 也可用as类型断言
-
-  // 7. 窗口变化，echart重新计算图标尺寸
-  window.addEventListener('resize', () => {
-    echartInstance.resize()
-  })
-
-  const setOptions = (options: echarts.EChartsOption) => {
-    echartInstance.setOption(options)
-  }
-
+  const { setOptions } = useEchart(echartDivRef.value!)
   watchEffect(() => {
     // 6. 为echart设置一个图标配置信息
     setOptions(props.options)

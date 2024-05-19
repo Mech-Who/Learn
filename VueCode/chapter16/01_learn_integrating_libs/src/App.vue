@@ -33,7 +33,7 @@ import type { EChartsOption } from 'echarts';
 
 // import { ElButton } from 'element-plus'
 // import EchartDemo from './base-ui/echart-demo.vue'
-import BaseEchart from './base-ui/index';
+import BaseEchart from './base-ui/echart/index';
 export default defineComponent({
   name: 'App',
   components: {
