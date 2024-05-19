@@ -14,7 +14,7 @@ interface HYRequestConfig<T = any> extends AxiosRequestConfig {
   interceptors?: HYRequestInterceptors<T>;
 }
 
-class HYRequest {
+class HYRequest<T = any> {
   instance: AxiosInstance; // 1. 声明instance的类型
   interceptors?: HYRequestInterceptors; // 10. 指定拦截器的类型
 
@@ -64,7 +64,7 @@ class HYRequest {
 
   // 3. 编写request函数，request中的T用于指定响应结果res.data的类型
   // 7. 这次request函数的返回值类型为Pormise<T>
-  request<T>(config: HYRequestConfig): Promise<T> {
+  request<T = any>(config: HYRequestConfig): Promise<T> {
     return new Promise((resolve, reject) => {
       this.instance
         .request<T, T>(config) // 4. 调用instance.request
@@ -78,6 +78,19 @@ class HYRequest {
           return err;
         });
     });
+  }
+
+  get<T = any>(config: HYRequestConfig): Promise<T>{
+    return this.request<T>({ ...config, method: "GET" });
+  }
+  post<T = any>(config: HYRequestConfig): Promise<T>{
+    return this.request<T>({ ...config, method: "POST" });
+  }
+  delete<T = any>(config: HYRequestConfig): Promise<T>{
+    return this.request<T>({ ...config, method: "DELETE" });
+  }
+  patch<T = any>(config: HYRequestConfig): Promise<T>{
+    return this.request<T>({ ...config, method: "PATCH" });
   }
 }
 
