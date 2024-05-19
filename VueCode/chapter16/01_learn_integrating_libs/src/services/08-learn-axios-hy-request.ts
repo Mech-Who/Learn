@@ -14,5 +14,6 @@ hyRequest
     method: "get",
   })
   .then((res) => {
-    console.log(res.data); // TypeScript会自动推导出res.data的类型为IResponseData
+    // console.log(res.data); // TypeScript会自动推导出res.data的类型为IResponseData
+    console.log(res); // TypeScript会自动推导出res.data的类型为IResponseData
   })
