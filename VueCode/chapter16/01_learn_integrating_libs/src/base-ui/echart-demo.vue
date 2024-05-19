@@ -22,23 +22,52 @@ export default defineComponent({
       const echartInstance: ECharts = echarts.init(echartDivRef.value as HTMLElement, "dark", {renderer: 'canvas'})
       // 6. echart柱状图表的配置，指定类型为EChartsOption
       const options: EChartsOption = {
+        // 1. 标题相关的属性
         title: {
-          text: "ECharts 入门实例",
+          text: "ECharts 入门实例",   // 标题的内容
+          textStyle: {}             // 标题的样式
         },
-        tooltip: {},
+        // 2. 提示框组件
+        tooltip: {
+          // 'item': 数据项图形触发显示提示框，主要在散点图，饼图等无类目轴的图表中使用
+          // 'axis': 坐标轴触发显示提示框，主要在柱状图、折线图等会使用类目轴的图表中使用
+          trigger: 'item',
+        },
+        // 3. 图例组件
         legend: {
+          // 图例中的数据通常是一个数组字符串（比如将series属性中的name值填入）
+          // 如果不设置，那么会默认提取
           data: ["销量"],
         },
-        xAxis: {
-          type: "category",
-          data: ["衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子"],
+        // 4. 在直角坐标系内绘制网格的位置
+        grid: {
+          // 是否显示直角坐标系的网格
+          show: true,
+          // 设置下面的值时，是否包含babel
+          containLabel: false,
+          // 上下左右的距离
+          top: '3%',
+          bottom: '3%',
+          left: '3%',
+          right: '4%',
         },
+        // 5. x轴相关的属性（支持对象和数组类型）
+        xAxis: {
+          // 'value': 数值轴，适用于连续数据
+          // 'category': 类目轴，适用于离散的类目数据
+          type: "category",                                               // 坐标轴类型，这里为类目轴
+          data: ["衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子"],   // x轴上的数据
+        },
+        // 5. y轴相关的属性
         yAxis: {},
+        // 6. 图表具体的数据
         series: [
           {
-            name: "销量",
-            type: "bar",
-            data: [5, 20, 36, 10, 10, 20],
+            name: "销量",                   // 数据对应的名称
+            type: "bar",                    // 以柱状图的形式展示（支持bar、line、pie、map等）
+            label: {},                      // 图形上的文本标签，可用于说明图形的一些数据信息
+            emphasis: {},                   // 配置高亮的图形样式和标签样式
+            data: [5, 20, 36, 10, 10, 20],  // 图表的各个数据项（支持number、string、object等类型）
           }
         ]
       }
