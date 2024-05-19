@@ -11,7 +11,7 @@
   </router-view>
   <!-- Vuex -->
   <div>
-    <h1>当前计数：{{ $store.state.counter }}</h1>
+    <h1>当前计数：{{ store.state.counter }}</h1>
   </div>
   <button @click="increment">+1</button>
   <button @click="decrement">-1</button>
@@ -41,7 +41,7 @@ export default defineComponent({
     const store = useStore<IRootState>()
     const increment = () => { store.commit('increment') }
     const decrement = () => { store.commit('decrement') }
-    return { decrement, increment }
+    return { store, decrement, increment }
   }
 })
 </script>
