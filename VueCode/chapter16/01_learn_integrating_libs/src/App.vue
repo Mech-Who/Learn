@@ -19,6 +19,8 @@
   <el-button>Default</el-button>
   <el-button type="primary">Primary</el-button>
   <el-button type="success">Success</el-button>
+  <!-- ECharts -->
+  <echart-demo></echart-demo>
 </template>
 
 <script lang="ts">
@@ -28,11 +30,12 @@ import { useStore } from 'vuex'
 import type { IRootState } from './store/index'
 
 // import { ElButton } from 'element-plus'
-
+import EchartDemo from './base-ui/echart-demo.vue'
 export default defineComponent({
   name: 'App',
   components: {
     // ElButton  // 局部注册ElButton组件
+    EchartDemo
   },
   setup() {
     const store = useStore<IRootState>()
