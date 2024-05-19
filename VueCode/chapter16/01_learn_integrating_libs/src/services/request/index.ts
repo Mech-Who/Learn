@@ -1,15 +1,39 @@
 import axios from "axios";
 import type { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 
-interface HYRequestConfig extends AxiosRequestConfig {
-  // 可扩展自己的类型
+// 8. 定义拦截器的类型，T是响应结果（res.data）的类型
+interface HYRequestInterceptors<T = any> {
+  requestInterceptor?: (config: AxiosRequestConfig) => AxiosRequestConfig;
+  requestInterceptorCatch?: (error: any) => any;
+  responseInterceptor?: (res: AxiosResponse<T>) => AxiosResponse<T> | Promise<AxiosResponse<T>>;
+  responseInterceptorCatch?: (error: any) => any;
+}
+
+interface HYRequestConfig<T = any> extends AxiosRequestConfig {
+  // 9. 可扩展自己的类型
+  interceptors?: HYRequestInterceptors<T>;
 }
 
 class HYRequest {
   instance: AxiosInstance; // 1. 声明instance的类型
+  interceptors?: HYRequestInterceptors; // 10. 指定拦截器的类型
+
   constructor(config: HYRequestConfig) {
     // 2. 创建axios实例
     this.instance = axios.create(config);
+
+    // 11. 从config中取出对应实例的拦截器
+    this.interceptors = config.interceptors
+    // 12. 如果某个实例的config中有定义拦截的回调函数，那么将这些函数添加到实例的拦截器中
+    this.instance.interceptors.request.use(
+      this.interceptors?.requestInterceptor,
+      this.interceptors?.requestInterceptorCatch
+    )
+    this.instance.interceptors.response.use(
+      this.interceptors?.responseInterceptor,
+      this.interceptors?.responseInterceptorCatch
+    )
+
     // 6. 为所有实例添加全局拦截器
     this.instance.interceptors.request.use(
       (config) => {
@@ -30,7 +54,7 @@ class HYRequest {
       (err) => {
         console.log("所有的实例都有的拦截器：响应失败拦截");
         // 例子：判断的不同的HttpErrorCode显示不同的错误信息
-        if(err.response.status === 404) {
+        if (err.response.status === 404) {
           console.log("404的错误~");
         }
         return err;
