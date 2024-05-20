@@ -3,12 +3,17 @@ formatters:
   simple:
     format: '%(asctime)s:%(name)s:%(levelname)s:%(lineno)s:%(message)s'
     datefmt: '%Y-%m-%d %I:%M%S'
+filters:
+  level-filter:
+    (): "use_dict_config.filter_maker"
+    level: WARNING
 handlers:
   console:
     class: logging.StreamHandler
     level: DEBUG
     formatter: simple
     stream: ext://sys.stdout
+    filters: ['level-filter']
   error-by-size:
     class: logging.handlers.RotatingFileHandler
     level: DEBUG
@@ -27,7 +32,7 @@ handlers:
     backupCount: 5
     encoding: 'utf-8'
 loggers:
-  main:
+  use_dict_config:
     level: DEBUG
     handlers: [console, error-by-time, error-by-size]
     propagate: no

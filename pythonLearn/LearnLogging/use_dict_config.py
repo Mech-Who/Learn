@@ -2,6 +2,16 @@ import logging
 import logging.config
 import yaml
 
+
+def filter_maker(level):
+    level = getattr(logging, level)
+
+    def filter(record):
+        return record.levelno <= level
+
+    return filter
+
+
 yaml_config = None
 with open("logging.yaml", 'r') as f:
     yaml_config = yaml.safe_load(f)
@@ -10,7 +20,7 @@ with open("logging.yaml", 'r') as f:
 
 logging.config.dictConfig(yaml_config)
 
-logger = logging.getLogger(__name__)
+logger = logging.getLogger("use_dict_config")
 
 # 'application' code
 logger.debug('debug message')
