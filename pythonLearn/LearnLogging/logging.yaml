@@ -1,0 +1,36 @@
+version: 1
+formatters:
+  simple:
+    format: '%(asctime)s:%(name)s:%(levelname)s:%(lineno)s:%(message)s'
+    datefmt: '%Y-%m-%d %I:%M%S'
+handlers:
+  console:
+    class: logging.StreamHandler
+    level: DEBUG
+    formatter: simple
+    stream: ext://sys.stdout
+  error-by-size:
+    class: logging.handlers.RotatingFileHandler
+    level: DEBUG
+    formatter: simple
+    filename: error-by-size.log
+    maxBytes: 1048576
+    backupCount: 5
+    encoding: 'utf-8'
+  error-by-time:
+    class: logging.handlers.TimedRotatingFileHandler
+    level: DEBUG
+    formatter: simple
+    filename: error-by-time.log
+    when: 'midnight'
+    interval: 1
+    backupCount: 5
+    encoding: 'utf-8'
+loggers:
+  main:
+    level: DEBUG
+    handlers: [console, error-by-time, error-by-size]
+    propagate: no
+root:
+  level: DEBUG
+  handlers: [console, error-by-time, error-by-size]
