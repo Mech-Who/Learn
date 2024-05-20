@@ -1,0 +1,32 @@
+INFO:__main__:main started...
+INFO:__main__:main finished!
+INFO:__main__:main started...
+INFO:mylib:playing...
+INFO:__main__:main finished!
+INFO:__main__:main started...
+DEBUG:mylib:give a debug
+INFO:mylib:give a info
+WARNING:mylib:give a warning
+ERROR:mylib:give a exception
+NoneType: None
+ERROR:mylib:give a error
+CRITICAL:mylib:give a critical
+INFO:__main__:main finished!
+INFO:__main__:main started...
+DEBUG:mylib:give a debug
+INFO:mylib:give a info
+WARNING:mylib:give a warning
+ERROR:mylib:give a exception
+NoneType: None
+ERROR:mylib:give a error
+CRITICAL:mylib:give a critical
+INFO:__main__:main finished!
+INFO:__main__:main started...
+DEBUG:mylib:give a debug
+INFO:mylib:give a info
+WARNING:mylib:give a warning
+ERROR:mylib:give a exception
+NoneType: None
+ERROR:mylib:give a error
+CRITICAL:mylib:give a critical
+INFO:__main__:main finished!
