@@ -48,7 +48,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 - 组件导包顺序：依次为 Vue.js 技术栈、第三方工具函数、本地组件、本地工具函数。
 - 组件的名称：统一以大写开头，即驼峰命名。
 - 组件属性顺序：name -> components -> props -> emits -> setup 等。
-- template 标签：统一为小写，多个单词使用短横线分隔，例如<case-panel/>。
+- template 标签：统一为小写，多个单词使用短横线分隔，例如`<case-panel/>`。
 - template 标签属性顺序：v-if -> v-for -> ref -> class -> style -> ... -> 事件。
 - 组件的 props：以小写开头，即驼峰命名。必必须编写类型与默认值。
 - 组件的样式：添加作用域 scoped，类名统一为小写，多个单词使用短横线分隔。
