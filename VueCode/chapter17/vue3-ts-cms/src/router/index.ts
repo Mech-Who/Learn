@@ -1,20 +1,35 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
 
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
-    name: 'home',
-    component: HomeView
+    // 访问默认路由时，重定向到登录页面
+    redirect: '/login'
   },
   {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
+    // 登录页面的路由
+    path: '/login',
+    // 该页面的名称
+    name: 'login',
+    // 懒加载页面组件
     component: () =>
-      import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
+      import(/* webpackChunkName: "about" */ '@/views/login/login.vue')
+  },
+  {
+    // 首页的路由
+    path: '/main',
+    name: 'main',
+    component: () =>
+      import(/* webpackChunkName: "main" */ '@/views/main/main.vue')
+  },
+  {
+    // 没有匹配的路径时显示该页面
+    path: '/:pathMatch(.*)*',
+    name: 'notFound',
+    component: () =>
+      import(
+        /* webpackChunkName: "notFound" */ '@/views/not-found/not-found.vue'
+      )
   }
 ]
 
