@@ -9,10 +9,12 @@ module.exports = defineConfig({
 
   // 方式二：和webpack属性完全一致，最后与webpack的配置进行合并
   configureWebpack: {
-    // 配置别名
-    alias: {
-      '@': path.resolve(__dirname, 'src'), // Vue CLI 5.x后默认已配置
-      components: '@/components'
+    resolve: {
+      // 配置别名
+      alias: {
+        '@': path.resolve(__dirname, 'src'), // Vue CLI 5.x后默认已配置
+        components: '@/components'
+      }
     }
   }
 })
