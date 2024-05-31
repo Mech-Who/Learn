@@ -2,31 +2,31 @@
 
 ## 1. Project setup
 
-```
+```shell
 npm install
 ```
 
 ### 1.1 Compiles and hot-reloads for development
 
-```
+```shell
 npm run serve
 ```
 
 ### 1.2 Compiles and minifies for production
 
-```
+```shell
 npm run build
 ```
 
 ### 1.3 Lints and fixes files
 
-```
+```shell
 npm run lint
 ```
 
 ### 1.4 Format all files
 
-```
+```shell
 npm run prettier
 ```
 
