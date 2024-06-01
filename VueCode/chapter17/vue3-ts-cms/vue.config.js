@@ -1,4 +1,7 @@
 const { defineConfig } = require('@vue/cli-service')
+const AutoImport = require('unplugin-auto-import/webpack')
+const Components = require('unplugin-vue-components/webpack')
+const { ElementPlusResolver } = require('unplugin-vue-components/resolvers')
 const path = require('path')
 
 module.exports = defineConfig({
@@ -15,6 +18,14 @@ module.exports = defineConfig({
         '@': path.resolve(__dirname, 'src'), // Vue CLI 5.x后默认已配置
         components: '@/components'
       }
-    }
+    },
+    plugins: [
+      AutoImport({
+        resolvers: [ElementPlusResolver()]
+      }),
+      Components({
+        resolvers: [ElementPlusResolver()]
+      })
+    ]
   }
 })
