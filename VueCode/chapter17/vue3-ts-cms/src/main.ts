@@ -7,6 +7,10 @@ import hyRequest from './service'
 
 createApp(App).use(store).use(router).mount('#app')
 
+console.log(process.env.NODE_ENV) // development
+console.log(process.env.VUE_APP_BASE_URL) // https://coderwhy/org/dev
+console.log(process.env.VUE_APP_ENV) // development
+
 // 测试hyRequest的功能
 hyRequest.request({
   url: '/get',
