@@ -13,7 +13,7 @@ const hyRequest = new HYRequest({
       const token = "";
       if(token) {
         // 例子：统一为header添加Authorization属性
-        config.headers!.Authorization = `Bearer $(token)`;
+        config.headers!.Authorization = `Bearer ${token}`;
       }
       console.log("单个实例-请求成功的拦截");
       return config;
