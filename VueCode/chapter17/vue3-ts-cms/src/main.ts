@@ -5,7 +5,7 @@ import store from './store'
 // 导入hyRequest实例
 import hyRequest from './service'
 import 'normalize.css'
-import './assert/css/index.less'
+import './assets/css/index.less'
 
 createApp(App).use(store).use(router).mount('#app')
 
