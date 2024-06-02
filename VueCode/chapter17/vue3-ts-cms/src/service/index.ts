@@ -11,6 +11,7 @@ const hyRequest = new HYRequest({
       // 例子：统一为header添加Authorization属性
       const token = ''
       if (token && config.headers) {
+        // eslint-disable-next-line
         config.headers!.Authorization = `Bearer ${token}`
       }
       return config
