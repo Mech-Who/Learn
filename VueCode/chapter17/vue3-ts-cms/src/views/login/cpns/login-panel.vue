@@ -38,9 +38,11 @@
 import { ref } from 'vue'
 import LoginAccount from './login-account.vue'
 import LoginPhone from './login-account.vue'
+const accountRef = ref<InstanceType<typeof LoginAccount>>() // 获取login-account组件对象
 const isKeepPassword = ref(true)
 const handleLoginClick = () => {
-  console.log(isKeepPassword.value, '单击登录')
+  // 单击“立即登录”按钮，调用login-account组件暴露的loginAction方法
+  accountRef.value?.loginAction()
 }
 </script>
 

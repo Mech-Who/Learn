@@ -1,10 +1,10 @@
 <template>
   <div class="login-account">
-    <el-form label-width="60px" :model="account" ref="formRef">
-      <el-form-item label="账号">
+    <el-form label-width="60px" :model="account" :rules="rules" ref="formRef">
+      <el-form-item label="账号" prop="name">
         <el-input v-model="account.name" />
       </el-form-item>
-      <el-form-item label="密码">
+      <el-form-item label="密码" prop="password">
         <el-input v-model="account.password" />
       </el-form-item>
     </el-form>
@@ -12,6 +12,7 @@
 </template>
 
 <script lang="ts" setup>
+import { rules } from '../config/account-config'
 import { reactive, ref } from 'vue'
 import type { ElForm } from 'element-plus'
 // 1. 定义响应式数据，保存用户输入的用户名（账号）和密码
