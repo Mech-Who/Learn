@@ -31,7 +31,7 @@ const formRef = ref<InstanceType<typeof ElForm>>()
 const loginAction = (isKeepPassword: boolean) => {
   formRef.value?.validate((valid) => {
     if (valid) {
-      // 3.1 判断是否需要记住密码
+      // 判断是否需要记住密码
       if (isKeepPassword) {
         // 本地缓存用户名和密码
         localCache.setCache('name', account.name)

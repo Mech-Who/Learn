@@ -40,7 +40,8 @@ import LoginAccount from './login-account.vue'
 import LoginPhone from './login-account.vue'
 import localCache from '@/utils/cache'
 
-const accountRef = ref<InstanceType<typeof LoginAccount>>() // 获取login-account组件对象
+const accountRef = ref<InstanceType<typeof LoginAccount>>() // 获取 login-account 组件对象
+const phoneRef = ref<InstanceType<typeof LoginPhone>>() // 获取 login-phone 组件对象
 const currentTab = ref('account')
 
 onMounted(() => {
@@ -57,6 +58,7 @@ const handleLoginClick = () => {
     accountRef.value?.loginAction(isKeepPassword.value) // 是否记住密码，传递给loginAction方法
   } else {
     // 2. 手机登录方法 todo......
+    phoneRef.value?.loginAction()
   }
 }
 </script>
