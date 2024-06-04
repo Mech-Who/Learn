@@ -21,7 +21,7 @@
             </el-icon>
           </span>
         </template>
-        <!-- todo add login form 2 /> -->
+        <login-phone></login-phone>
       </el-tab-pane>
     </el-tabs>
     <div class="account-control">
@@ -37,6 +37,7 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
 import LoginAccount from './login-account.vue'
+import LoginPhone from './login-account.vue'
 const isKeepPassword = ref(true)
 const handleLoginClick = () => {
   console.log(isKeepPassword.value, '单击登录')
