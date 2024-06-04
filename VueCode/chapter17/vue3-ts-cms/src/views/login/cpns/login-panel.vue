@@ -11,7 +11,7 @@
             账号登录
           </span>
         </template>
-        <!-- todo add login form 1 1> -->
+        <login-account></login-account>
       </el-tab-pane>
       <el-tab-pane>
         <template #label>
@@ -36,6 +36,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
+import LoginAccount from './login-account.vue'
 const isKeepPassword = ref(true)
 const handleLoginClick = () => {
   console.log(isKeepPassword.value, '单击登录')
