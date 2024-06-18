@@ -11,7 +11,7 @@
             账号登录
           </span>
         </template>
-        <login-account></login-account>
+        <login-account ref="accountRef" />
       </el-tab-pane>
       <el-tab-pane name="phone">
         <template #label>
@@ -21,15 +21,15 @@
             </el-icon>
           </span>
         </template>
-        <login-phone></login-phone>
+        <login-phone ref="phoneRef" />
       </el-tab-pane>
     </el-tabs>
     <div class="account-control">
       <el-checkbox v-model="isKeepPassword">记住密码</el-checkbox>
       <el-link type="primary">忘记密码</el-link>
     </div>
-    <el-button type="primary" class="login-btn" @click="handleLoginClick"
-      >立即登录
+    <el-button type="primary" class="login-btn" @click="handleLoginClick">
+      立即登录
     </el-button>
   </div>
 </template>
@@ -37,7 +37,7 @@
 <script lang="ts" setup>
 import { ref, onMounted } from 'vue'
 import LoginAccount from './login-account.vue'
-import LoginPhone from './login-account.vue'
+import LoginPhone from './login-phone.vue'
 import localCache from '@/utils/cache'
 
 const accountRef = ref<InstanceType<typeof LoginAccount>>() // 获取 login-account 组件对象
