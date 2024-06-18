@@ -10,6 +10,18 @@ module.exports = defineConfig({
   outputDir: './build', // 应用打包输出的目录
   publicPath: '/', // 应用打包时的基本URL
 
+  devServer: {
+    proxy: {
+      '^/api': {
+        target: 'http://codercba.com:5000',
+        pathRewrite: {
+          '^/api': ''
+        },
+        changeOrigin: true
+      }
+    }
+  },
+
   // 方式二：和webpack属性完全一致，最后与webpack的配置进行合并
   configureWebpack: {
     resolve: {
