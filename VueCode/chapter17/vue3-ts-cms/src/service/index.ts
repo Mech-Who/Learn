@@ -1,5 +1,6 @@
 import HYRequest from './request'
 import { BASE_URL, TIME_OUT } from './request/config'
+import localCache from '@/utils/cache'
 
 const hyRequest = new HYRequest({
   baseURL: BASE_URL,
@@ -9,7 +10,7 @@ const hyRequest = new HYRequest({
     requestInterceptor: (config) => {
       // console.log('单个实例-请求成功的拦截')
       // 例子：统一为header添加Authorization属性
-      const token = ''
+      const token = localCache.getCache('token')
       if (token && config.headers) {
         // eslint-disable-next-line
         config.headers!.Authorization = `Bearer ${token}`
