@@ -26,6 +26,9 @@ const loginModule: Module<ILoginState, IRootState> = {
     changeToken(state, token: string) {
       state.token = token
     },
+    changeUserInfo(state, userInfo: any) {
+      state.userInfo = userInfo
+    },
     changeUserMenus(state, userMenus: any) {
       state.userMenus = userMenus
     }
@@ -33,7 +36,7 @@ const loginModule: Module<ILoginState, IRootState> = {
   actions: {
     async accountLoginAction({ commit, dispatch }, payload: IAccount) {
       const loginResult = await accountLoginRequest(payload)
-      console.log(loginResult)
+      // console.log(loginResult)
       const { id, token } = loginResult.data
       commit('changeToken', token)
       localCache.setCache('token', token)
@@ -49,6 +52,20 @@ const loginModule: Module<ILoginState, IRootState> = {
       localCache.setCache('userMenus', userMenus)
 
       router.push('/main')
+    },
+    loadLocalLogin({ commit, dispatch }) {
+      const token = localCache.getCache('token')
+      if (token) {
+        commit('changeToken', token)
+      }
+      const userInfo = localCache.getCache('userInfo')
+      if (userInfo) {
+        commit('changeUserInfo', userInfo)
+      }
+      const userMenus = localCache.getCache('userMenus')
+      if (userMenus) {
+        commit('changeUserMenus', userMenus)
+      }
     }
   }
 }
