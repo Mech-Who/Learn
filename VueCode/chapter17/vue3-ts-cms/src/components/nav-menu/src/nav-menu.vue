@@ -2,7 +2,7 @@
   <div class="nav-menu">
     <!-- logo -->
     <div class="logo">
-      <img src="~@/assets/img/logo.svg" alt="logo" class="img" />
+      <img src="@/assets/img/logo.png" alt="logo" class="img" />
       <!-- 折叠时隐藏标题 -->
       <span v-if="!collapse" class="title">Vue3+TS{{ collapse }}</span>
     </div>
@@ -24,16 +24,17 @@
               <el-icon v-if="item.icon">
                 <component :is="formatIcon(item)"></component>
               </el-icon>
+              <span>{{ item.name }}</span>
             </template>
             <!-- 遍历里面的item -->
-            <templaet v-for="subitem in item.children" :key="subitem.id">
+            <template v-for="subitem in item.children" :key="subitem.id">
               <el-menu-item :index="subitem.id + ''">
                 <el-icon v-if="subitem.icon">
                   <component :is="formatIcon(subitem)"></component>
                 </el-icon>
                 <span>{{ subitem.name }}</span>
               </el-menu-item>
-            </templaet>
+            </template>
           </el-sub-menu>
         </template>
         <!-- 一级菜单 -->
@@ -59,6 +60,7 @@ interface Props {
   collapse: boolean
 }
 // 1. 定义属性，并且带上默认值
+// eslint-disable-next-line
 const props = withDefaults(defineProps<Props>(), {
   collapse: true // 菜单默认展开
 })
@@ -77,6 +79,7 @@ const formatIcon = computed(() => {
 .nav-menu {
   height: 100%;
   background-color: #001529;
+
   .logo {
     display: flex;
     height: 28px;
@@ -84,6 +87,7 @@ const formatIcon = computed(() => {
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
+
     .img {
       height: 100%;
       margin: 0 10px;
@@ -95,19 +99,23 @@ const formatIcon = computed(() => {
       color: white;
     }
   }
+
   .el-menu {
     border-right: none;
   }
+
   // 目录
   .el-submenu {
     background-color: #001529 !important;
+
     // 二级菜单（默认背景）
     .el-menu-item {
       padding-left: 50px !important;
       background-color: #0c2135 !important;
     }
   }
-  ::v-deep .el-submenu__title {
+
+  :deep(.el-submenu__title) {
     background-color: #001529 !important;
   }
 
@@ -115,11 +123,13 @@ const formatIcon = computed(() => {
   .el-menu-item:hover {
     color: #fff !important; // 菜单
   }
+
   .el-menu-item.is-active {
     color: #fff !important;
     background-color: #0a60bd !important;
   }
 }
+
 .el-menu-vertical:not(.el-menu--collapse) {
   width: 100%;
   height: calc(100% - 48px);

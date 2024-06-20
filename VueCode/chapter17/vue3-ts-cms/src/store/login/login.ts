@@ -34,6 +34,7 @@ const loginModule: Module<ILoginState, IRootState> = {
     }
   },
   actions: {
+    // eslint-disable-next-line
     async accountLoginAction({ commit, dispatch }, payload: IAccount) {
       const loginResult = await accountLoginRequest(payload)
       // console.log(loginResult)
@@ -53,6 +54,7 @@ const loginModule: Module<ILoginState, IRootState> = {
 
       router.push('/main')
     },
+    // eslint-disable-next-line
     loadLocalLogin({ commit, dispatch }) {
       const token = localCache.getCache('token')
       if (token) {

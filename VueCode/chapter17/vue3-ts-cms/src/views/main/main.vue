@@ -1,7 +1,9 @@
 <template>
   <div class="main-content">
     <el-container class="main-content">
-      <el-aside :width="'210px'">左边菜单</el-aside>
+      <el-aside :width="'210px'">
+        <nav-menu :collapse="true" />
+      </el-aside>
       <el-container class="page">
         <el-header class="page-header">
           <!-- nav header -->
@@ -14,7 +16,11 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
+import NavMenu from '@/components/nav-menu/src/nav-menu.vue'
 export default defineComponent({
+  components: {
+    NavMenu
+  },
   setup() {
     return {}
   }
