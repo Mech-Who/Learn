@@ -4,7 +4,7 @@
     <div class="logo">
       <img src="@/assets/img/logo.png" alt="logo" class="img" />
       <!-- 折叠时隐藏标题 -->
-      <span v-if="!collapse" class="title">Vue3+TS{{ collapse }}</span>
+      <span v-if="!collapse" class="title">Vue3+TS</span>
     </div>
     <!-- 菜单导航 -->
     <el-menu
