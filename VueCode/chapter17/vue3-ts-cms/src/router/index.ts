@@ -20,7 +20,14 @@ const routes: Array<RouteRecordRaw> = [
     path: '/main',
     name: 'main',
     component: () =>
-      import(/* webpackChunkName: "main" */ '@/views/main/main.vue')
+      import(/* webpackChunkName: "main" */ '@/views/main/main.vue'),
+    children: [
+      {
+        path: 'system/user',
+        name: 'user',
+        component: () => import('@/views/main/system/user/user.vue')
+      }
+    ]
   },
   {
     // 没有匹配的路径时显示该页面
