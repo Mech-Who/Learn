@@ -28,7 +28,10 @@
             </template>
             <!-- 遍历里面的item -->
             <template v-for="subitem in item.children" :key="subitem.id">
-              <el-menu-item :index="subitem.id + ''">
+              <el-menu-item
+                @click="handleMenuItemClick(subitem)"
+                :index="subitem.id + ''"
+              >
                 <el-icon v-if="subitem.icon">
                   <component :is="formatIcon(subitem)"></component>
                 </el-icon>
@@ -54,6 +57,7 @@
 <script lang="ts" setup>
 import { computed } from 'vue'
 import { useStore } from 'vuex'
+import { useRouter } from 'vue-router'
 import type { IStoreType } from '@/store/types'
 
 interface Props {
@@ -73,6 +77,13 @@ const formatIcon = computed(() => {
     return item.icon.replace('el-icon-', '')
   }
 })
+
+const router = useRouter()
+const handleMenuItemClick = (item: any) => {
+  router.push({
+    path: item.url ?? '/not-found'
+  })
+}
 </script>
 
 <style scoped lang="less">

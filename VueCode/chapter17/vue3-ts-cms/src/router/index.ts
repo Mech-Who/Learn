@@ -26,6 +26,21 @@ const routes: Array<RouteRecordRaw> = [
         path: 'system/user',
         name: 'user',
         component: () => import('@/views/main/system/user/user.vue')
+      },
+      {
+        path: 'system/department',
+        name: 'department',
+        component: () => import('@/views/main/system/department/department.vue')
+      },
+      {
+        path: 'system/menu',
+        name: 'menu',
+        component: () => import('@/views/main/system/menu/menu.vue')
+      },
+      {
+        path: 'system/role',
+        name: 'role',
+        component: () => import('@/views/main/system/role/role.vue')
       }
     ]
   },
