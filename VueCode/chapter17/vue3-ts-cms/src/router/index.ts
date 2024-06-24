@@ -21,38 +21,7 @@ const routes: Array<RouteRecordRaw> = [
     name: 'main',
     component: () =>
       import(/* webpackChunkName: "main" */ '@/views/main/main.vue'),
-    children: [
-      {
-        path: 'system/user',
-        name: 'user',
-        component: () => import('@/views/main/system/user/user.vue')
-      },
-      {
-        path: 'system/department',
-        name: 'department',
-        component: () => import('@/views/main/system/department/department.vue')
-      },
-      {
-        path: 'system/menu',
-        name: 'menu',
-        component: () => import('@/views/main/system/menu/menu.vue')
-      },
-      {
-        path: 'system/role',
-        name: 'role',
-        component: () => import('@/views/main/system/role/role.vue')
-      },
-      {
-        path: 'analysis/dashboard',
-        name: 'dashboard',
-        component: () => import('@/views/main/analysis/dashboard/dashboard.vue')
-      },
-      {
-        path: 'analysis/overview',
-        name: 'overview',
-        component: () => import('@/views/main/analysis/overview/overview.vue')
-      }
-    ]
+    children: []
   },
   {
     // 没有匹配的路径时显示该页面
