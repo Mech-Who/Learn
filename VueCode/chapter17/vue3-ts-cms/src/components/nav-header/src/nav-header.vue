@@ -4,15 +4,29 @@
       <component :is="isFold ? 'expand' : 'fold'"></component>
     </el-icon>
     <div class="content">
-      <div>面包屑</div>
+      <hy-breadcrumb :breadcrumbs="breadcrumbs"></hy-breadcrumb>
       <user-info />
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import UserInfo from './user-info.vue'
+import HyBreadcrumb from '@/base-ui/breadcrumb'
+import { useStore } from 'vuex'
+import type { IStoreType } from '@/store/types'
+import { useRoute } from 'vue-router'
+import { pathMapBreadcrumbs } from '@/utils/map-menus'
+
+const store = useStore<IStoreType>()
+const route = useRoute()
+
+const breadcrumbs = computed(() => {
+  const userMenus = store.state.login.userMenus
+  const currentPath = route.path
+  return pathMapBreadcrumbs(userMenus, currentPath)
+})
 
 const isFold = ref(false)
 const emit = defineEmits(['foldChange'])
