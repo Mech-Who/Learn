@@ -41,6 +41,16 @@ const routes: Array<RouteRecordRaw> = [
         path: 'system/role',
         name: 'role',
         component: () => import('@/views/main/system/role/role.vue')
+      },
+      {
+        path: 'analysis/dashboard',
+        name: 'dashboard',
+        component: () => import('@/views/main/analysis/dashboard/dashboard.vue')
+      },
+      {
+        path: 'analysis/overview',
+        name: 'overview',
+        component: () => import('@/views/main/analysis/overview/overview.vue')
       }
     ]
   },
