@@ -1,6 +1,7 @@
 <template>
   <div class="user">
     <page-search
+      :searchFormConfig="searchFormConfig"
       @resetBtnClick="handleResetClick"
       @queryBtnClick="handleQueryClick"
     ></page-search>
@@ -9,6 +10,7 @@
 
 <script lang="ts" setup>
 import PageSearch from '@/components/page-search'
+import { searchFormConfig } from './config/search.config'
 
 const handleResetClick = () => {
   console.log('handleResetClick')
