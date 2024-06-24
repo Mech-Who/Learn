@@ -30,4 +30,3 @@ export const searchFormConfig: IForm = {
     }
   ]
 }
-
