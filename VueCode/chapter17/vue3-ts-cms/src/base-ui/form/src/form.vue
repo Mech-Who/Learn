@@ -39,12 +39,12 @@
                 </el-select>
               </template>
               <template v-else-if="item.type === 'datepicker'">
-                <el-data-picker
+                <el-date-picker
                   style="width: 100%"
                   v-bind="item.otherOptions"
                   :model-value="modelValue[`${item.field}`]"
                   @update:modelValue="handleValueChange($event, item.field)"
-                ></el-data-picker>
+                ></el-date-picker>
               </template>
             </el-form-item>
           </el-col>
