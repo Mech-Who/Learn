@@ -1,18 +1,18 @@
 import axios from 'axios'
 import type { AxiosInstance } from 'axios'
-import type { HYRequestInterceptors, HYRequestConfig } from './type'
+import type { HyRequestInterceptors, HyRequestConfig } from './type'
 // 导入ElLoading组件和样式
 import 'element-plus/es/components/loading/style/css'
 import { ElLoading } from 'element-plus'
 
 const DEFAULT_LOADING = true
 
-class HYRequest<T = any> {
+class HyRequest<T = any> {
   instance: AxiosInstance // 1. 声明instance的类型
-  interceptors?: HYRequestInterceptors // 10. 指定拦截器的类型
+  interceptors?: HyRequestInterceptors // 10. 指定拦截器的类型
   showLoading?: boolean // 2. 是否显示loading
   loading?: any // 3. loading的组件实例
-  constructor(config: HYRequestConfig<T>) {
+  constructor(config: HyRequestConfig<T>) {
     // 2. 创建axios实例
     this.instance = axios.create(config)
     // 4. 是否显示加载进度，默认为true
@@ -72,7 +72,7 @@ class HYRequest<T = any> {
 
   // 3. 编写request函数，request中的T用于指定响应结果res.data的类型
   // 7. 这次request函数的返回值类型为Pormise<T>
-  request<T = any>(config: HYRequestConfig): Promise<T> {
+  request<T = any>(config: HyRequestConfig): Promise<T> {
     return new Promise((resolve, reject) => {
       // 8. 判断某个请求是否需要显示loading
       if (config.showLoading === false) {
@@ -96,18 +96,18 @@ class HYRequest<T = any> {
     })
   }
 
-  get<T = any>(config: HYRequestConfig): Promise<T> {
+  get<T = any>(config: HyRequestConfig): Promise<T> {
     return this.request<T>({ ...config, method: 'GET' })
   }
-  post<T = any>(config: HYRequestConfig): Promise<T> {
+  post<T = any>(config: HyRequestConfig): Promise<T> {
     return this.request<T>({ ...config, method: 'POST' })
   }
-  delete<T = any>(config: HYRequestConfig): Promise<T> {
+  delete<T = any>(config: HyRequestConfig): Promise<T> {
     return this.request<T>({ ...config, method: 'DELETE' })
   }
-  patch<T = any>(config: HYRequestConfig): Promise<T> {
+  patch<T = any>(config: HyRequestConfig): Promise<T> {
     return this.request<T>({ ...config, method: 'PATCH' })
   }
 }
 
-export default HYRequest
+export default HyRequest
