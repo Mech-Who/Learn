@@ -1,5 +1,6 @@
 import { createStore } from 'vuex'
 import login from './login/login'
+import system from './main/system/system'
 import type { IRootState } from './types'
 
 const store = createStore<IRootState>({
@@ -13,7 +14,8 @@ const store = createStore<IRootState>({
   mutations: {},
   actions: {},
   modules: {
-    login
+    login,
+    system
   }
 })
 
