@@ -7,6 +7,7 @@
     ></page-search>
     <page-content
       ref="pageContentRef"
+      :contentTableConfig="contentTableConfig"
       pageName="users"
       @newBtnClick="handleNewData"
     ></page-content>
@@ -18,12 +19,12 @@ import { ref } from 'vue'
 import PageSearch from '@/components/page-search'
 import PageContent from '@/components/page-content'
 import { searchFormConfig } from './config/search.config'
+import { contentTableConfig } from './config/content.config'
+const pageContentRef = ref<InstanceType<typeof PageContent>>()
 
 const handleNewData = () => {
   console.log('handleNewData')
 }
-
-const pageContentRef = ref<InstanceType<typeof PageContent>>()
 
 const handleResetClick = () => {
   pageContentRef.value?.getPageData()
