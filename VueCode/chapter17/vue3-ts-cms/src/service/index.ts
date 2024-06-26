@@ -1,8 +1,8 @@
-import HYRequest from './request'
+import HyRequest from './request'
 import { BASE_URL, TIME_OUT } from './request/config'
 import localCache from '@/utils/cache'
 
-const hyRequest = new HYRequest({
+const hyRequest = new HyRequest({
   baseURL: BASE_URL,
   timeout: TIME_OUT,
   // 为单个实例添加的拦截器
