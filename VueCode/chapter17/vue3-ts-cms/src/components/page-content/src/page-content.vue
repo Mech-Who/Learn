@@ -29,7 +29,6 @@
         </div>
       </template>
     </hy-table>
-    <h4>Hello World1</h4>
   </div>
 </template>
 

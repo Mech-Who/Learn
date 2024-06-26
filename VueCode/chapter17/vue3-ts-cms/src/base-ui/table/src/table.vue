@@ -59,7 +59,7 @@
 interface Props {
   title?: string
   listData: Array<any>
-  listCounte?: number
+  listCount?: number
   propList: Array<any>
   page?: { currentPage: number; pageSize: number }
   childrenProps?: any
