@@ -325,7 +325,7 @@ class User:
 输出如下：
 
 ```shell
->>> u1 =User('wangbm1')
+>>> u1 = User('wangbm1')
 ===== 1 =====
 ===== 2 =====
 ===== 3 =====
