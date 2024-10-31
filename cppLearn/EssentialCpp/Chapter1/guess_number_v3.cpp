@@ -2,7 +2,7 @@
  * @Author: HuShuhan 873933169@qq.com
  * @Date: 2024-10-31 12:49:59
  * @LastEditors: HuShuhan 873933169@qq.com
- * @LastEditTime: 2024-10-31 19:57:55
+ * @LastEditTime: 2024-10-31 19:59:49
  * @FilePath: \EssentialCpp\Chapter1\guess_number.cpp
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -30,7 +30,6 @@ int main(int argc, char *argv[])
     int right_count = 0;
     int wrong_count = 0;
     bool still_guess = true;
-    const int seq_size = 18;
     vector<int> seq{seq_size};
     seq[0] = 1;
     seq[1] = 1;
