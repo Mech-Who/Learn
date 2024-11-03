@@ -24,3 +24,11 @@ fibon_seq(int size)
     return &elems;
 }
 
+template <typename elemType>
+void display_message(const string&, const vector<elemType> &vec, ostream& os){
+    os << msg;
+    for ( int ix=0; ix < vec.size(); ++ix ){
+        elemType t = vec[ix];
+        os << t << ' ';
+    }
+}

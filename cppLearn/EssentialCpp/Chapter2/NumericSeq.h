@@ -1,4 +1,5 @@
 #include <vector>
+#include <list>
 #include <iostream>
 
 using namespace std;
@@ -33,3 +34,8 @@ void display_message(const string&);
 void display_message(const string&, int);
 void display_message(const string&, int, int);
 
+template <typename elemType>
+void display_message(const string&, const vector<elemType> &vec, ostream& os=cout);
+
+template <typename elemType>
+void display_message(const string&, const list<elemType> &vec, ostream& os=cout);
