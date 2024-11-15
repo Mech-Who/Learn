@@ -1,5 +1,7 @@
 # folder
 wechatLearn/
+.arts
+.vscode
 
 # types
 *.code-workspace
