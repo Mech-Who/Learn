@@ -94,3 +94,15 @@ bool less_than(int v1, int v2){
 bool greater_than(int v1, int v2){
     return v1 > v2? true: false;
 }
+
+// 用find_if()取代for循环
+// 举例
+int count_occurs(const vector<int> & vec, int val){
+    vector<int>::const_iterator iter = vec.begin()
+    int occurs_count = 0;
+    while((iter = find(iter, vec.end(), val)) != vec.end()){
+        ++occurs_count;
+        ++iter; // 指向下一个元素
+    }
+    return occurs_count;
+}

@@ -1,6 +1,7 @@
 #include <vector>
 #include <iostream>
 #include <algorithm>
+#include <functional>
 
 template <typename elemType>
 elemType *find(const elemType *array, int size, const elemType &value);
@@ -26,3 +27,5 @@ std::vector<int> filter(const std::vector<int> &vec,
                         bool (*pred)(int, int));
 bool less_than(int v1, int v2);
 bool greater_than(int v1, int v2);
+
+int count_occurs(const vector<int> & vec, int val);
