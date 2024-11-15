@@ -9,6 +9,10 @@ void display(const vector<int> &vec, ostream &os)
     os << endl;
 }
 
+const vector<int> *(*seq_array[])(int) = {
+    fibon_seq, penta_seq
+};
+
 const vector<int> *
 fibon_seq(int size)
 {
