@@ -16,7 +16,7 @@ template <typename elemType>
 elemType *end(const std::vector<elemType> &vec);
 
 template <typename elemType>
-void display(const std::vector<elemType> &vec, std::ostream &os=cout);
+void display(const std::vector<elemType> &vec, std::ostream &os=std::cout);
 
 bool is_elem(std::vector<int> &vec, int elem);
 
@@ -28,4 +28,4 @@ std::vector<int> filter(const std::vector<int> &vec,
 bool less_than(int v1, int v2);
 bool greater_than(int v1, int v2);
 
-int count_occurs(const vector<int> & vec, int val);
+int count_occurs(const std::vector<int> & vec, int val);
