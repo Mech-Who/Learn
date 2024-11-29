@@ -120,9 +120,9 @@ void test_transform_binary_param(){
     display(result, cout);
 }
 
-int filter_less_than(const vector<int> & vec, 
-                        int val, 
-                        less_than<int> &lt){
+vector<int> filter_less_than(const vector<int> & vec,
+                        int val,
+                        less<int> &lt){
     vector<int> nvec;
     vector<int>::const_iterator iter = vec.begin();
 
@@ -136,7 +136,7 @@ int filter_less_than(const vector<int> & vec,
 // 使类型通用化
 template <typename InputIterator, typename OutputIterator,
           typename ElemType, typename Comp>
-OutputIterator filter(InputIterator first, InputIterator last, 
+OutputIterator filter(InputIterator first, InputIterator last,
            OutputIterator at, const ElemType &val, Comp pred){
     OutputIterator out = at;
     InputIterator iter=first;
@@ -147,5 +147,5 @@ OutputIterator filter(InputIterator first, InputIterator last,
 }
 
 int main(){
-    test_transform_one_param();
+    test_transform_binary_param();
 }
