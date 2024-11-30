@@ -1,8 +1,8 @@
 /*
  * @Author: HuShuhan 873933169@qq.com
  * @Date: 2024-11-22 14:23:18
- * @LastEditors: HuShuhan 873933169@qq.com
- * @LastEditTime: 2024-11-29 22:09:15
+ * @LastEditors: hushuhan 873933169@qq.com
+ * @LastEditTime: 2024-12-01 00:48:19
  * @FilePath: \EssentialCpp\Chapter4\4_3\class_triangular.cpp
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -11,6 +11,37 @@
 #include "class_triangular.h"
 
 using namespace std;
+
+void Triangular::square(int pos)
+{
+    if (_beg_pos + _length < pos){
+        vector<int> *pseq = &Triangular::seq[SQUARE];
+        for (int ix = pseq->size(); ix < _beg_pos + _length; ++ix)
+        {
+            pseq->push_back(ix*ix);
+        }
+    }
+}
+
+void Triangular::triangular(int pos)
+{
+    if (_beg_pos + _length < pos){
+        vector<int> *pseq = &Triangular::seq[TRIANGULAR];
+        for (int ix = pseq->size(); ix < _beg_pos + _length; ++ix)
+        {
+            pseq->push_back(ix*(ix+1)/2);
+        }
+    }
+}
+
+typedef Triangular::PtrType PtrType;
+
+PtrType func_tbl[Triangular::num_seq] = {
+    nullptr,
+    &Triangular::square,
+    &Triangular::triangular};
+
+vector<vector<int>> seq(Triangular::num_seq);
 
 Triangular::Triangular(int len, int beg_pos)
     : _name("Triangular")

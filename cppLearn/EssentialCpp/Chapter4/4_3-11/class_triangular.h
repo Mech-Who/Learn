@@ -1,8 +1,8 @@
 /*
  * @Author: HuShuhan 873933169@qq.com
  * @Date: 2024-11-22 14:23:18
- * @LastEditors: HuShuhan 873933169@qq.com
- * @LastEditTime: 2024-11-29 21:59:17
+ * @LastEditors: hushuhan 873933169@qq.com
+ * @LastEditTime: 2024-12-01 00:49:41
  * @FilePath: \EssentialCpp\Chapter4\4_3\class_triangular.h
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -27,20 +27,27 @@ public:
     bool next(int &val);
     void next_reset() { _next = _beg_pos - 1; }
 
+    void square(int pos);
+    void triangular(int pos);
+
+    enum SeqType{
+        SQUARE=1,
+        TRIANGULAR
+    };
+
+    typedef void (Triangular::*PtrType)(int);
+
+    static const int num_seq = 3;
+    static PtrType func_tbl[num_seq];
+    static vector<vector<int>> seq;
+
     Triangular &operator=(const Triangular &rhs);
     int operator()(int index);
-
-    friend std::ostream& operator<<(std::ostream& os, Triangular &rhs);
-    friend std::istream& operator>>(std::istream& is, Triangular &rhs);
 
     static bool is_elem(int);
     static void gen_elements(int length);
     static void gen_elems_to_value(int value);
     static void display(int length, int beg_pos, std::ostream &os = std::cout);
-
-    // cout << Triangular()
-    // friend operator<<(ostream& os){
-    // }
 
     class Triangular_iterator
     {
@@ -59,6 +66,8 @@ public:
         int _index;
     };
 
+    friend std::ostream &operator<<(std::ostream &os, Triangular &rhs);
+    friend std::istream &operator>>(std::istream &is, Triangular &rhs);
     friend int operator*(const Triangular_iterator &rhs);
     // friend int Triangular_iterator::operator*();
     // friend void Triangular_iterator::check_integrity();
