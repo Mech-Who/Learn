@@ -39,7 +39,7 @@ public:
 
     static const int num_seq = 3;
     static PtrType func_tbl[num_seq];
-    static vector<vector<int>> seq;
+    static std::vector<std::vector<int>> seq;
 
     Triangular &operator=(const Triangular &rhs);
     int operator()(int index);
