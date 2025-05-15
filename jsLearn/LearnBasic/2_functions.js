@@ -155,9 +155,9 @@ console.log(array.forEach((x) => console.log(`for: ${x}`)));
  * 闭包
  */
 function lazy_sum() {
-  let arr3 = [0];
+  let arr3 = [];
   return function (arrt) {
-    arr3.concat(arrt);
+    arr3 = arr3.concat(arrt);
     return arr3.length > 0 ? arr3.reduce((x, y) => x + y) : arr3;
   };
 }
@@ -168,11 +168,42 @@ console.log(`lazy_res2: ${lazy_res([6, 7, 8])}`);
 /**
  * 箭头函数（匿名函数）
  */
+// 箭头函数内部的this是词法作用域，由上下文确定。
+// 无需that技术来实现在方法中定义函数
+let add = (x, y) => x + y;
+console.log(`add(1, 2): ${add(1, 2)}`);
 
 /**
  * 标签函数
  */
+const email = "test@example.com";
+const password = "hello123";
+function sql(strings, ...exps) {
+  console.log(`SQL: ${strings.join("?")}`);
+  console.log(`SQL parameters: ${JSON.stringify(exps)}`);
+  return {
+    name: "小明",
+    age: 20,
+  };
+}
+const result = sql`SELECT * FROM users WHERE email=${email} AND password=${password}`;
+console.log(JSON.stringify(result));
 
 /**
  * 生成器函数
  */
+function* fib(start, count = 100) {
+  let t,
+    a = 0,
+    b = 1,
+    n = 0;
+  while (start < count) {
+    yield a;
+    [a, b] = [b, a + b];
+    start++;
+  }
+  return;
+}
+for (let num of fib(5, 10)) {
+  console.log(`fib: ${num}`);
+}
