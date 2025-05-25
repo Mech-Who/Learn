@@ -10,7 +10,7 @@ async def display(num):
 async def main():
     start = time.time()
     async with asyncio.TaskGroup() as tg:
-        tasks = [tg.create_task(display(i)) for i in range(1, 10)]
+        [tg.create_task(display(i)) for i in range(1, 10)]
     # tasks = [display(i)for i in range(1, 10)]
     # await asyncio.gather(*tasks)
     end = time.time()
