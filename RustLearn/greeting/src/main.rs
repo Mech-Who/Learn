@@ -25,29 +25,65 @@ fn div(n1: i32, n2: i32) -> i32 {
 fn mod_(n1: i32, n2: i32) -> i32 {
     n1 % n2
 }
+struct Operation{
+    op1: i32,
+    op2: i32,
+    op_type: CalcType,
+}
 
-fn calc(a: i32, b: i32, calc_type: CalcType) -> i32 {
-    match calc_type {
-        CalcType::Add => add(a, b),
-        CalcType::Sub => sub(a, b),
-        CalcType::Mul => mul(a, b),
-        CalcType::Div => div(a, b),
-        CalcType::Mod => mod_(a, b),
+fn calc(op: Operation) -> i32 {
+    match op.op_type {
+        CalcType::Add => add(op.op1, op.op2),
+        CalcType::Sub => sub(op.op1, op.op2),
+        CalcType::Mul => mul(op.op1, op.op2),
+        CalcType::Div => div(op.op1, op.op2),
+        CalcType::Mod => mod_(op.op1, op.op2),
     }
 }
 
 fn main() {
     let a = 23;
     let b = 5;
-    let res = calc(a, b, CalcType::Add);
+    // add
+    let op = Operation{
+        op1: a,
+        op2: b,
+        op_type: CalcType::Add,
+    };
+    let res = calc(op);
     println!("{} + {} = {}", a, b, res);
-    let res = calc(a, b, CalcType::Sub);
+    // Sub
+    let op = Operation{
+        op1: a,
+        op2: b,
+        op_type: CalcType::Sub,
+    };
+    let res = calc(op);
     println!("{} - {} = {}", a, b, res);
-    let res = calc(a, b, CalcType::Mul);
+    // Mul
+    let op = Operation{
+        op1: a,
+        op2: b,
+        op_type: CalcType::Mul,
+    };
+    let res = calc(op);
     println!("{} * {} = {}", a, b, res);
-    let res = calc(a, b, CalcType::Div);
+    // Div
+    let op = Operation{
+        op1: a,
+        op2: b,
+        op_type: CalcType::Div,
+    };
+    let res = calc(op);
     println!("{} / {} = {}", a, b, res);
-    let res = calc(a, b, CalcType::Mod);
+    // Mod
+    let op = Operation{
+        op1: a,
+        op2: b,
+        op_type: CalcType::Mod,
+    };
+    let res = calc(op);
     println!("{} % {} = {}", a, b, res);
+    // over
     println!("Hello, world!");
 }
