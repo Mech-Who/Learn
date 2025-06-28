@@ -2,47 +2,52 @@
 
 namespace Learn
 {
-    // 声明委托类型（传统方式）
-    public delegate int BinaryOperation(int a, int b);
+    class Program{
+        static void Main(){
+            TemperatureDisplay display = new TemperatureDisplay();
+            TemperatureAlarm alarm = new TemperatureAlarm();
+            TemperatureSensor sensor = new TemperatureSensor(ref display, ref alarm);
 
-    class Program
-    {
-        // 1. 定义兼容的方法
-        static int Add(int x, int y) => x + y;
-        static int Multiply(int x, int y) => x * y;
+            double[] DayTemperature = [35.6, 33.5, 27.5, 23.9, 20.1, 10.5, 7.3, 2.1, 0.5, -1.3, -4.6];
+            foreach(double newTemp in DayTemperature){
+                sensor.ReadTemperature(newTemp);
+                Thread.Sleep(1000); // 当前线程休眠1秒
+            }
+        }
+    }
 
-        static void Main()
+
+    class TemperatureSensor{
+        private double LastTemperature {get; set;}
+        private TemperatureDisplay Display {get; set;}
+        private TemperatureAlarm Alarm {get; set;}
+        private Action<double, double> OnTemperatureChanged;
+        public TemperatureSensor(ref TemperatureDisplay display, ref TemperatureAlarm alarm)
         {
-            // 2. 实例化委托（传统方式）
-            BinaryOperation operation = new BinaryOperation(Add);
-            Console.WriteLine($"Addition: {operation(5, 3)}"); // 输出 8
-
-            // 3. 委托重新赋值（指向Multiply方法）
-            operation = Multiply;
-            Console.WriteLine($"Multiplication: {operation(5, 3)}"); // 输出 15
-
-            // 4. 多播委托（组合多个方法）
-            operation += Add; // 此时委托执行列表：Multiply -> Add
-            Console.WriteLine($"Multicast Result: {operation(5, 3)}"); // 输出15 (只返回最后结果)
-
-            // 5. 现代C#语法（Func委托 + Lambda表达式）
-            Func<int, int, int> modernOperation = (a, b) => a - b;
-            Console.WriteLine($"Lambda: {modernOperation(5, 3)}"); // 输出2
-
-            // 6. 委托作为参数传递
-            CalculateAndPrint(10, 2, Divide); // 输出 "Division: 5"
-
-            // 7. 使用内置Action委托（无返回值）
-            Action<string> logger = message => Console.WriteLine($"[LOG] {DateTime.Now}: {message}");
-            logger("Operation completed");
+            (Display, Alarm) = (display, alarm);
+            LastTemperature = 0.0f;
+            OnTemperatureChanged += Display.DisplayTemperature;
+            OnTemperatureChanged += Alarm.AlarmTemperature;
         }
 
-        static int Divide(int a, int b) => b != 0 ? a / b : 0;
+        public void ReadTemperature(double newTemperature){
+            if ((newTemperature-LastTemperature) < 1e-9)
+                OnTemperatureChanged?.Invoke(newTemperature, LastTemperature);
+            LastTemperature = newTemperature;
+        }
+    }
 
-        // 方法接受委托作为参数
-        static void CalculateAndPrint(int x, int y, BinaryOperation op)
-        {
-            Console.WriteLine($"Division: {op(x, y)}");
+    class TemperatureDisplay{
+        public void DisplayTemperature(double newTemperature, double oldTemperature){
+            Console.WriteLine($"Current Temperature: {newTemperature}, Last Temperature: {oldTemperature}.");
+        }
+    }
+    class TemperatureAlarm{
+        public void AlarmTemperature(double newTemperature, double oldTemperature){
+            if (newTemperature > 30.0f)
+                Console.WriteLine($"Alarm: Temperature is {newTemperature} (Too high!)");
+            else if(newTemperature < 0.0f)
+                Console.WriteLine($"Alarm: Temperature is {newTemperature} (Too low!)");
         }
     }
 }
