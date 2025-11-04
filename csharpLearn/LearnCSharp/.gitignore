@@ -11,6 +11,7 @@
 *.sln.docstates
 # C# 项目我自己编译，不需要sln文件
 *.sln
+*.exe
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
